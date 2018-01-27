@@ -6,8 +6,12 @@ public class PlayerShooting : MonoBehaviour
 {
     public GameObject projectilePrefab;
 
-	// Use this for initialization
-	void Start ()
+    private Vector2 fireInput;
+    private float fireAngle;
+    private PlayerProjectile projectile;
+
+    // Use this for initialization
+    void Start ()
     {
 		
 	}
@@ -15,19 +19,16 @@ public class PlayerShooting : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		if(Input.GetMouseButtonDown(0))
+        //get input of right stick
+        fireInput = new Vector2(Input.GetAxisRaw("RightH"), Input.GetAxisRaw("RightV"));
+        
+        Debug.Log(fireInput);
+        if (fireInput.sqrMagnitude > 0.0f)
         {
-            
-            GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity) as GameObject;
-            PlayerProjectile playerProjectile = projectile.GetComponent<PlayerProjectile>();
-
-            if(playerProjectile)
-            {
-                //playerProjectile.Shoot(dir);
-            }
-            //projectile.GetComponent<PlayerProjectile>().Shoot(mousePosition);
-
-
+            fireAngle = Mathf.Atan2(fireInput.y, fireInput.x) * Mathf.Rad2Deg;
+            GameObject curProjectile = Instantiate(projectilePrefab,transform.position, transform.rotation) as GameObject;
+            PlayerProjectile projectileScript = curProjectile.GetComponent<PlayerProjectile>();
+            projectileScript.Shoot(fireInput);
         }
 	}
 }
