@@ -11,7 +11,8 @@ public class ShootProjectiles : MonoBehaviour {
     float elapseTime;
     bool isReloading = false;
     public bool PlayerNear;
-
+    Quaternion tempRot;
+    bool rotateOnce;
     void Awake()
     {
         //turn off muzzle art
@@ -20,6 +21,8 @@ public class ShootProjectiles : MonoBehaviour {
             MuzzleArt.SetActive(false);
         }
     }
+
+ 
 
     void FixedUpdate()
     {

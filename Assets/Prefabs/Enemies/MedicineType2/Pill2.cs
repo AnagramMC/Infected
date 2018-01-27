@@ -20,7 +20,7 @@ public class Pill2 : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         rb.velocity = -transform.up * speed;
-        
+        Target = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
