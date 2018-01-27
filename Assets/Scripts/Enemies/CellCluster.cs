@@ -7,8 +7,8 @@ public class CellCluster : MonoBehaviour
 
     public RedBloodCell[] Cells;
     private int[] numberArr;
-    
 
+    public PlayerHealth target;
 
 
     private int numofCells;
@@ -50,35 +50,42 @@ public class CellCluster : MonoBehaviour
 
     public void FireCell()
     {
-        if (Cells[numberArr[cellCount]].gameObject.activeSelf == true)
+        if (!target.dead)
         {
-            Cells[numberArr[cellCount]].Attack();
-
-            cellCount++;
-            if (cellCount >= numofCells)
+            if (Cells[numberArr[cellCount]].gameObject.activeSelf == true)
             {
-                cellCount = 0;
+                Cells[numberArr[cellCount]].Attack();
+
+                cellCount++;
+                if (cellCount >= numofCells)
+                {
+                    cellCount = 0;
+                }
+                else
+                {
+                    StartAttack();
+                }
             }
             else
             {
-                StartAttack();
+                Debug.Log("DEAD CELL!");
+                cellCount++;
+
+                if (cellCount >= numofCells)
+                {
+                    cellCount = 0;
+                }
+                else
+                {
+                    Debug.Log("Fire CELL!");
+                    FireCell();
+                }
+
             }
         }
         else
         {
-            Debug.Log("DEAD CELL!");
-            cellCount++;
-
-            if (cellCount >= numofCells)
-            {
-                cellCount = 0;
-            }
-            else
-            {
-                Debug.Log("Fire CELL!");
-                FireCell();
-            }
-
+            StartCoroutine(LaunchWait(1));
         }
 
         Debug.Log(cellCount);

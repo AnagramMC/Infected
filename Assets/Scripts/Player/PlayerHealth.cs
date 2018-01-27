@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
 
     private int lives = 3;
 
+    public bool dead = false;
 
     public float spriteBlinkingTimer = 0.0f;
     public float spriteBlinkingMiniDuration = 0.1f;
@@ -46,10 +47,11 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator RespawnWait(int seconds)
     {
         playerCollision.enabled = false;
-        transform.position = Camera.transform.Find("Death Location").transform.position;
+        dead = true;
+        transform.parent.position = Camera.transform.Find("Death Location").transform.position;
         Debug.Log("RESPAWN WAIT");
         yield return new WaitForSeconds(seconds);
-        transform.position = Camera.transform.Find("Spawn Location").transform.position;
+        transform.parent.position = Camera.transform.Find("Spawn Location").transform.position;
         this.gameObject.SetActive(true);
         StartCoroutine(CollisionDelay(2));
     }
@@ -61,6 +63,7 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         StopSpriteBlinkingEffect();
         playerCollision.enabled = true;
+        dead = false;
     }
 
     private void StartSpriteBlinkingEffect()
@@ -72,13 +75,13 @@ public class PlayerHealth : MonoBehaviour
         if (spriteBlinkingTimer >= spriteBlinkingMiniDuration)
         {
             spriteBlinkingTimer = 0.0f;
-            if (this.gameObject.GetComponent<SpriteRenderer>().enabled == true)
+            if (transform.parent.gameObject.GetComponent<SpriteRenderer>().enabled == true)
             {
-                this.gameObject.GetComponent<SpriteRenderer>().enabled = false;  //make changes
+                transform.parent.gameObject.GetComponent<SpriteRenderer>().enabled = false;  //make changes
             }
             else
             {
-                this.gameObject.GetComponent<SpriteRenderer>().enabled = true;   //make changes
+                transform.parent.gameObject.GetComponent<SpriteRenderer>().enabled = true;   //make changes
             }
         }
     }
@@ -87,7 +90,7 @@ public class PlayerHealth : MonoBehaviour
     {
         startBlinking = false;
         spriteBlinkingTotalTimer = 0.0f;
-        this.gameObject.GetComponent<SpriteRenderer>().enabled = true;   // according to 
+        transform.parent.gameObject.GetComponent<SpriteRenderer>().enabled = true;   // according to 
                                                                          //your sprite
     }
 
