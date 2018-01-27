@@ -7,19 +7,13 @@ public class Shotgun : MonoBehaviour {
     public int damage;
     public float rateOfFire;
 
-    public GameObject[] bullets;
-
     private float currentTime;
-    private Rigidbody2D[] rb;
+    public Rigidbody2D[] rb;
 
     ProjectilePoolManager pool;
     // Use this for initialization
     void Awake ()
     {
-		for (int i = 0; i < bullets.Length; i++)
-        {
-            rb[i] = bullets[i].GetComponent<Rigidbody2D>();
-        }
         pool = GameObject.Find("ShotgunPool").GetComponent<ProjectilePoolManager>();
     }
 	
@@ -36,6 +30,7 @@ public class Shotgun : MonoBehaviour {
         rb[2].velocity = direction * speed;
         rb[3].velocity = direction * speed;
         rb[4].velocity = direction * speed;
+        rb[5].velocity = direction * speed;
     }
 
     void OnTriggerEnter2D(Collider2D col)
