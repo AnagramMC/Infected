@@ -45,27 +45,51 @@ public class CellCluster : MonoBehaviour
 
     public void StartAttack()
     {
-        StartCoroutine(SendThem(1));
+        StartCoroutine(LaunchWait(1));
     }
 
-    IEnumerator SendThem(int seconds)
+    public void FireCell()
     {
-        
-        yield return new WaitForSeconds(seconds);
-        
-        if (Cells[cellCount])
+        if (Cells[numberArr[cellCount]].gameObject.activeSelf == true)
         {
             Cells[numberArr[cellCount]].Attack();
-        }
-        cellCount++;
-        if (cellCount >= numofCells)
-        {
-            cellCount = 0;
+
+            cellCount++;
+            if (cellCount >= numofCells)
+            {
+                cellCount = 0;
+            }
+            else
+            {
+                StartAttack();
+            }
         }
         else
         {
-            StartAttack();
+            Debug.Log("DEAD CELL!");
+            cellCount++;
+
+            if (cellCount >= numofCells)
+            {
+                cellCount = 0;
+            }
+            else
+            {
+                Debug.Log("Fire CELL!");
+                FireCell();
+            }
+
         }
+
+        Debug.Log(cellCount);
+    }
+
+    IEnumerator LaunchWait(int seconds)
+    {
+        
+        yield return new WaitForSeconds(seconds);
+        FireCell();
+        
     }
 
     private void OnTriggerEnter2D(Collider2D col)

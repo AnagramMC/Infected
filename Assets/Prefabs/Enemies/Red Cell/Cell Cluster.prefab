@@ -22,9 +22,10 @@ GameObject:
   - component: {fileID: 50625314523524840}
   - component: {fileID: 58931102754929586}
   - component: {fileID: 114111718254638342}
+  - component: {fileID: 114808524139541714}
   m_Layer: 0
   m_Name: RedBloodCell
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,9 +73,10 @@ GameObject:
   - component: {fileID: 50149666854263760}
   - component: {fileID: 58703922936245870}
   - component: {fileID: 114431941444287928}
+  - component: {fileID: 114084417641394948}
   m_Layer: 0
   m_Name: RedBloodCell (5)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,9 +108,10 @@ GameObject:
   - component: {fileID: 50457754899830208}
   - component: {fileID: 58227888945352058}
   - component: {fileID: 114152081646544994}
+  - component: {fileID: 114576871177311204}
   m_Layer: 0
   m_Name: RedBloodCell (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,9 +127,10 @@ GameObject:
   - component: {fileID: 50061994277953162}
   - component: {fileID: 58441131619722658}
   - component: {fileID: 114525572524365166}
+  - component: {fileID: 114799044662654822}
   m_Layer: 0
   m_Name: RedBloodCell (4)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,9 +146,10 @@ GameObject:
   - component: {fileID: 50135893600946642}
   - component: {fileID: 58684040806233374}
   - component: {fileID: 114655102355511120}
+  - component: {fileID: 114381251613668170}
   m_Layer: 0
   m_Name: RedBloodCell (3)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,9 +214,10 @@ GameObject:
   - component: {fileID: 50821047401138574}
   - component: {fileID: 58694488714991934}
   - component: {fileID: 114533812869292096}
+  - component: {fileID: 114627535239644174}
   m_Layer: 0
   m_Name: RedBloodCell (2)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -638,6 +644,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &114084417641394948
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1266814298742730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6355d0d758f7a469c09f18a10144d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!114 &114111718254638342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -662,6 +680,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+--- !u!114 &114381251613668170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1458017391712046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6355d0d758f7a469c09f18a10144d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!114 &114431941444287928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -698,6 +728,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+--- !u!114 &114576871177311204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1338218793481958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6355d0d758f7a469c09f18a10144d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+--- !u!114 &114627535239644174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1849371583446630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6355d0d758f7a469c09f18a10144d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!114 &114655102355511120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -710,6 +764,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+--- !u!114 &114799044662654822
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392899410934542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6355d0d758f7a469c09f18a10144d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+--- !u!114 &114808524139541714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1030872772352540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6355d0d758f7a469c09f18a10144d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!114 &114817064071439738
 MonoBehaviour:
   m_ObjectHideFlags: 1

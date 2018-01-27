@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerProjectile : MonoBehaviour
 {
     public float speed;
+    public int damage;
 
     private Rigidbody2D rb;
     public GameObject player;
@@ -26,6 +27,6 @@ public class PlayerProjectile : MonoBehaviour
     {
         rb.velocity = direction.normalized * speed;
 
-        Debug.Log("Shoot!");
+       // Debug.Log("Shoot!");
     }
 }

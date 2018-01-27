@@ -32,7 +32,7 @@ public class RedBloodCell : MonoBehaviour
         rb.velocity = dir * speed;
 
     }
-
+    /**
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
@@ -45,4 +45,5 @@ public class RedBloodCell : MonoBehaviour
             }
         }
     }
+    **/
 }

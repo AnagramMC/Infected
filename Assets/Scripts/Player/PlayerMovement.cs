@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         moveVelocity = moveInput * speed;
-        Debug.Log(moveInput);
+        //Debug.Log(moveInput);
     }
 
     void FixedUpdate()
