@@ -38,6 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4038368862309064}
   - component: {fileID: 212546640658014498}
+  - component: {fileID: 95409840956888812}
   m_Layer: 0
   m_Name: ArtModel
   m_TagString: Untagged
@@ -166,6 +167,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!95 &95409840956888812
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636472577782320}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b877d7e71ce1acc46be3bc7d707c59cd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114215660155447764
 MonoBehaviour:
   m_ObjectHideFlags: 1
