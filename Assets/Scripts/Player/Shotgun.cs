@@ -6,29 +6,27 @@ public class Shotgun : MonoBehaviour {
     public float speed;
     public int damage;
     public float rateOfFire;
-    public float lifeTime;
 
     public GameObject[] bullets;
 
     private float currentTime;
     private Rigidbody2D[] rb;
-	// Use this for initialization
-	void Awake ()
+
+    ProjectilePoolManager pool;
+    // Use this for initialization
+    void Awake ()
     {
 		for (int i = 0; i < bullets.Length; i++)
         {
             rb[i] = bullets[i].GetComponent<Rigidbody2D>();
         }
-	}
+        pool = GameObject.Find("ShotgunPool").GetComponent<ProjectilePoolManager>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        currentTime += Time.deltaTime;
-        if (currentTime > lifeTime)
-        {
-            Destroy(this.gameObject);
-        }
+
 	}
 
     public void Shoot(Vector2 direction)
@@ -38,5 +36,14 @@ public class Shotgun : MonoBehaviour {
         rb[2].velocity = direction * speed;
         rb[3].velocity = direction * speed;
         rb[4].velocity = direction * speed;
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Border")
+        {
+            this.gameObject.SetActive(false);
+            pool.ReturnProjectileToPool(this.gameObject);
+        }
     }
 }
