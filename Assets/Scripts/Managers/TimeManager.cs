@@ -14,7 +14,7 @@ public class TimeManager : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-		
+        timeText = GetComponent<Text>();
 	}
 	
 	// Update is called once per frame

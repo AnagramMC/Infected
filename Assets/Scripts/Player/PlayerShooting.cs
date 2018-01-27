@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     public GameObject projectilePrefab;
+    public PlayerProjectilePoolManager projectilePool;
+    public float lifeTime;
 
     private Vector2 fireInput;
     private float fireAngle;
@@ -28,7 +30,8 @@ public class PlayerShooting : MonoBehaviour
         if (fireInput.sqrMagnitude > 0.0f && canShoot)
         {
             fireAngle = Mathf.Atan2(fireInput.y, fireInput.x) * Mathf.Rad2Deg;
-            GameObject curProjectile = Instantiate(projectilePrefab,transform.position, transform.rotation) as GameObject;
+            GameObject curProjectile = projectilePool.MoveProjectileToPlayer(transform.position, transform.rotation);
+            curProjectile.SetActive(true);
             PlayerProjectile projectileScript = curProjectile.GetComponent<PlayerProjectile>();
             projectileScript.Shoot(fireInput);
             rateOfFire = projectileScript.rateOfFire;

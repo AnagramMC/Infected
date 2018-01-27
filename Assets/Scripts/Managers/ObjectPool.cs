@@ -27,6 +27,8 @@ public class ObjectPool : MonoBehaviour
         {
             GameObject gameObj = Instantiate(prefab, transform.position, Quaternion.identity) as GameObject;
 
+            gameObj.transform.parent = gameObject.transform;
+
             gameObj.SetActive(false);
 
             objectList.Add(gameObj);
@@ -60,6 +62,6 @@ public class ObjectPool : MonoBehaviour
         // Add object back to list and remove it back to pools location
         objectList.Add(gameObj);
         gameObj.transform.position = transform.position;
-        gameObj.SetActive(false);
+        
     }
 }
