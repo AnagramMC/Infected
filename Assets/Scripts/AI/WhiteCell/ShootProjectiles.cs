@@ -8,6 +8,7 @@ public class ShootProjectiles : MonoBehaviour {
     public GameObject Projectile;
     public GameObject MuzzleArt;
     public float FireRate;
+    ProjectilePoolManager projectilePool;
     float elapseTime;
     bool isReloading = false;
     public bool PlayerNear;
@@ -20,6 +21,8 @@ public class ShootProjectiles : MonoBehaviour {
         {
             MuzzleArt.SetActive(false);
         }
+
+        projectilePool = GameObject.Find("Enemy Projectile Pool").GetComponent<ProjectilePoolManager>();
     }
 
  
@@ -55,8 +58,19 @@ public class ShootProjectiles : MonoBehaviour {
                             StartCoroutine(MuzzleShot());
                         }
                         //create projectile
-                        Instantiate(Projectile, ProjectilePos[i].transform.position, ProjectilePos[i].transform.rotation);
-                        
+                        //Instantiate(Projectile, ProjectilePos[i].transform.position, ProjectilePos[i].transform.rotation);
+
+                        GameObject projectile = projectilePool.MoveProjectileToTarget(ProjectilePos[i].transform.position, ProjectilePos[i].transform.rotation);
+
+                        projectile.SetActive(true);
+
+                        WhiteCellProjectile whiteProjectile = projectile.GetComponent<WhiteCellProjectile>();
+
+                        if(whiteProjectile)
+                        {
+                            Debug.Log("GOTIT");
+                            whiteProjectile.startShot();
+                        }
                     }
                 }
                 //cool down starts now

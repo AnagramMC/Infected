@@ -21,6 +21,14 @@ public class LifeSpan : MonoBehaviour {
         {
             Instantiate(Explosion, transform.position, transform.rotation);
         }
-        Destroy(gameObject);
+
+        ProjectilePoolManager pool = GameObject.Find("Enemy Projectile Pool").GetComponent<ProjectilePoolManager>();
+
+        if (pool)
+        {
+            Debug.Log("Return");
+            this.gameObject.SetActive(false);
+            pool.ReturnProjectileToPool(this.gameObject);
+        }
     }
 }

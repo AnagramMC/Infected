@@ -18,6 +18,8 @@ public class WhiteCellProjectile : MonoBehaviour {
     float coolDownTimer;
     float attackCoolDown = 1.0f;
 
+    bool canShoot = false;
+
     void Start()
     {
         //reset number of ticks
@@ -29,15 +31,24 @@ public class WhiteCellProjectile : MonoBehaviour {
 
     void FixedUpdate()
     {
-        //increment number ticks 
-        numberOfTicks++;
-        //calculate speed
-        x = -xSpeed;
-        //calculate amplitude
-        y = amplitude * (Mathf.Sin(numberOfTicks * frequency * Time.deltaTime));
-        //apply movement
-        transform.Translate(x * Time.deltaTime, y * Time.deltaTime, 0);
+
+        if (canShoot)
+        {
+            //increment number ticks 
+            numberOfTicks++;
+            //calculate speed
+            x = -xSpeed;
+            //calculate amplitude
+            y = amplitude * (Mathf.Sin(numberOfTicks * frequency * Time.deltaTime));
+            //apply movement
+            transform.Translate(x * Time.deltaTime, y * Time.deltaTime, 0);
+        }
         
+    }
+
+    public void startShot()
+    {
+        canShoot = true;
     }
 
 }
