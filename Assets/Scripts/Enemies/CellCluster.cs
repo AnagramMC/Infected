@@ -35,6 +35,7 @@ public class CellCluster : MonoBehaviour
             numberArr[randomIndex] = temp;
         }
 
+        target = FindObjectOfType<PlayerHealth>();
     }
 	
 	// Update is called once per frame
@@ -60,6 +61,7 @@ public class CellCluster : MonoBehaviour
                 if (cellCount >= numofCells)
                 {
                     cellCount = 0;
+                   // Restart();
                 }
                 else
                 {
@@ -74,6 +76,7 @@ public class CellCluster : MonoBehaviour
                 if (cellCount >= numofCells)
                 {
                     cellCount = 0;
+                   // Restart();
                 }
                 else
                 {
@@ -110,5 +113,19 @@ public class CellCluster : MonoBehaviour
                 hasAttacked = true;
             }
         }
+    }
+
+    public void Restart()
+    {
+       // place cluster back into pool
+    }
+
+    public void TurnCellsOn()
+    {
+        for (int i = 0; i < Cells.Length; i++)
+        {
+            Cells[i].gameObject.SetActive(true);
+        }
+        
     }
 }

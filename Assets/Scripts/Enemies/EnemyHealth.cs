@@ -23,10 +23,16 @@ public class EnemyHealth : MonoBehaviour
     public void OnDamage(int damage)
     {
         health -= damage;
-
+        
         if (health <= 0)
         {
             gameObject.SetActive(false);
+
+            if (GetComponent<RedBloodCell>())
+            {
+                GetComponent<RedBloodCell>().ReturnPosition();
+            }
+            
             // Destroying logic with object pool, MAKE SURE TO RESET HEALTH AFTERT REMOVING
             //health = maxHealth;
         }
@@ -41,7 +47,10 @@ public class EnemyHealth : MonoBehaviour
             if (playerBullet)
             {
                 OnDamage(playerBullet.damage);
+                playerBullet.ReturnProjectile();
             }
+
+
         }
     }
 }

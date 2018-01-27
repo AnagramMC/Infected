@@ -9,10 +9,13 @@ public class RedBloodCell : MonoBehaviour
 
     public float speed;
 
+    private Vector3 originalPosition;
+
 	// Use this for initialization
 	void Start ()
     {
         rb = GetComponent<Rigidbody2D>();
+        originalPosition = transform.localPosition;
     }
 	
 	// Update is called once per frame
@@ -32,18 +35,18 @@ public class RedBloodCell : MonoBehaviour
         rb.velocity = dir * speed;
 
     }
-    /**
+
+    public void ReturnPosition()
+    {
+        transform.position = originalPosition;
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Player")
+        if(col.tag =="Border")
         {
-            PlayerHealth player = col.gameObject.GetComponent<PlayerHealth>();
-
-            if (player)
-            {
-                player.OnDamage();
-            }
+            gameObject.SetActive(false);
+            ReturnPosition();
         }
     }
-    **/
 }
