@@ -9,6 +9,8 @@ public class PlayerShooting : MonoBehaviour
     private Vector2 fireInput;
     private float fireAngle;
     private PlayerProjectile projectile;
+    private float rateOfFire;
+    private bool canShoot = true;
 
     // Use this for initialization
     void Start ()
@@ -23,12 +25,21 @@ public class PlayerShooting : MonoBehaviour
         fireInput = new Vector2(Input.GetAxisRaw("RightH"), Input.GetAxisRaw("RightV"));
         
         Debug.Log(fireInput);
-        if (fireInput.sqrMagnitude > 0.0f)
+        if (fireInput.sqrMagnitude > 0.0f && canShoot)
         {
             fireAngle = Mathf.Atan2(fireInput.y, fireInput.x) * Mathf.Rad2Deg;
             GameObject curProjectile = Instantiate(projectilePrefab,transform.position, transform.rotation) as GameObject;
             PlayerProjectile projectileScript = curProjectile.GetComponent<PlayerProjectile>();
             projectileScript.Shoot(fireInput);
+            rateOfFire = projectileScript.rateOfFire;
+            canShoot = false;
+            StartCoroutine(ResetCanShoot());
         }
 	}
+    
+    IEnumerator ResetCanShoot()
+    {
+        yield return new WaitForSeconds(rateOfFire);
+        canShoot = true;
+    }
 }
