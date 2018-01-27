@@ -45,6 +45,8 @@ public class PlayerShooting : MonoBehaviour
                     GameObject curProjectile = projectilePool.MoveProjectileToTarget(projectilePos[0].transform.position, projectilePos[0].transform.rotation);
                     curProjectile.SetActive(true);
                     PlayerProjectile projectileScript = curProjectile.GetComponent<PlayerProjectile>();
+                    projectileScript.changeLifeSpan(2);
+                    projectileScript.StartTimer();
                     projectileScript.Shoot(fireInput);
                     rateOfFire = projectileScript.rateOfFire;
                     canShoot = false;
@@ -52,19 +54,40 @@ public class PlayerShooting : MonoBehaviour
                 }
                 break;
             case WeaponTypes.Shotgun:
-                
-                break;
-            case WeaponTypes.TriGun:
                 if (fireInput.sqrMagnitude > 0.0f && canShoot)
                 {
                     fireAngle = Mathf.Atan2(fireInput.y, fireInput.x) * Mathf.Rad2Deg;
                     for (int i = 0; i <= projectilePos.Length - 1; i++)
                     {
                         fireAngle = Mathf.Atan2(fireInput.y, fireInput.x) * Mathf.Rad2Deg;
+                        projectilePivot.transform.rotation = Quaternion.Euler(new Vector3(0, 0, fireAngle));
+                        
+                        GameObject curProjectile = projectilePool.MoveProjectileToTarget(projectilePos[i].transform.position, projectilePos[i].transform.rotation);
+                        PlayerProjectile projectileScript = curProjectile.GetComponent<PlayerProjectile>();
+                        projectileScript.changeLifeSpan(0.25f);
+                        curProjectile.SetActive(true);
+                        projectileScript.StartTimer();
+                        projectileScript.Shoot(projectilePos[i].transform.right);
+                        rateOfFire = projectileScript.lifeSpan;
+
+                        canShoot = false;
+                        StartCoroutine(ResetCanShoot());
+                    }
+                }
+                break;
+            case WeaponTypes.TriGun:
+                if (fireInput.sqrMagnitude > 0.0f && canShoot)
+                {
+                    fireAngle = Mathf.Atan2(fireInput.y, fireInput.x) * Mathf.Rad2Deg;
+                    for (int i = 0; i <= 2; i++)
+                    {
+                        fireAngle = Mathf.Atan2(fireInput.y, fireInput.x) * Mathf.Rad2Deg;
                         GameObject curProjectile = projectilePool.MoveProjectileToTarget(projectilePos[i].transform.position, projectilePos[i].transform.rotation);
                         curProjectile.SetActive(true);
                         PlayerProjectile projectileScript = curProjectile.GetComponent<PlayerProjectile>();
-                        projectileScript.Shoot(fireInput);
+                        projectileScript.changeLifeSpan(2);
+                        projectileScript.StartTimer();
+                        projectileScript.Shoot(projectilePos[i].transform.up);
                         rateOfFire = projectileScript.rateOfFire;
                     }
                     canShoot = false;

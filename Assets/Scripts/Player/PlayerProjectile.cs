@@ -10,19 +10,32 @@ public class PlayerProjectile : MonoBehaviour
     public int damage;
     public float rateOfFire;
     private Rigidbody2D rb;
-
+    public float lifeSpan = 2;
     // Use this for initialization
     void Awake ()
     {
         rb = GetComponent<Rigidbody2D>();
         pool = GameObject.Find("Player Projectile Pool").GetComponent<ProjectilePoolManager>();
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    public float changeLifeSpan(float newLifeSpan)
     {
-		
-	}
+        return lifeSpan = newLifeSpan;
+    }
+
+    
+
+    public void StartTimer()
+    {
+        StartCoroutine(CountDownToReturn());
+    }
+
+    IEnumerator CountDownToReturn()
+    {
+        yield return new WaitForSeconds(lifeSpan);
+        gameObject.SetActive(false);
+        ReturnProjectile();
+    }
 
     public void Shoot(Vector2 direction)
     {
