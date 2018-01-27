@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 58009582475710748}
   - component: {fileID: 114185843828390580}
   m_Layer: 0
-  m_Name: Pill2
+  m_Name: MedicineType2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
