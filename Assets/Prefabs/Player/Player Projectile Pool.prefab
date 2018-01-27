@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4072696951298600}
   - component: {fileID: 114401376458661162}
-  - component: {fileID: 114592403882893990}
+  - component: {fileID: 114997321703477404}
   m_Layer: 0
   m_Name: Player Projectile Pool
   m_TagString: Untagged
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1310857590139728, guid: ef58b6a87afbc604e992c36f5e2aeabc, type: 2}
   size: 100
---- !u!114 &114592403882893990
+--- !u!114 &114997321703477404
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1496527340378618}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9713af750d8e84949a0d3ecf521a2c2f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ac16f48f3a065e4db263fa8ad0b870e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pool: {fileID: 114401376458661162}

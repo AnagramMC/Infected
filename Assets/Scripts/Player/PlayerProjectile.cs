@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerProjectile : MonoBehaviour
 {
-    PlayerProjectilePoolManager pool;
+    ProjectilePoolManager pool;
 
     public float speed;
     public int damage;
@@ -15,7 +15,7 @@ public class PlayerProjectile : MonoBehaviour
     void Awake ()
     {
         rb = GetComponent<Rigidbody2D>();
-        pool = FindObjectOfType<PlayerProjectilePoolManager>();
+        pool = GameObject.Find("Player Projectile Pool").GetComponent<ProjectilePoolManager>();
     }
 	
 	// Update is called once per frame
