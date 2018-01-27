@@ -13,6 +13,7 @@ public class CellCluster : MonoBehaviour
 
     private int numofCells;
     private int cellCount = 0;
+    private bool hasAttacked = false;
 
 	// Use this for initialization
 	void Start ()
@@ -39,7 +40,7 @@ public class CellCluster : MonoBehaviour
             Debug.Log(numberArr[i]);
         }
 
-            StartAttack();
+            
 
     }
 	
@@ -71,6 +72,19 @@ public class CellCluster : MonoBehaviour
         else
         {
             StartAttack();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.tag == "Player")
+        {
+            if(!hasAttacked)
+            {
+                StartAttack();
+
+                hasAttacked = true;
+            }
         }
     }
 }
