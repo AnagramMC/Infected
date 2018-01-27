@@ -434,6 +434,10 @@ Prefab:
       propertyPath: m_TagString
       value: Border
       objectReference: {fileID: 0}
+    - target: {fileID: 4163649248908032, guid: 00275c233ea7c7a458042b3aa7dcbd7a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -9.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00275c233ea7c7a458042b3aa7dcbd7a, type: 2}
   m_IsPrefabParent: 0
@@ -603,11 +607,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4566866676534484, guid: 1e018c2e10a212d4c8d1cf34b4154881, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.3921515
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4566866676534484, guid: 1e018c2e10a212d4c8d1cf34b4154881, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.3909036
+      value: -9.8
       objectReference: {fileID: 0}
     - target: {fileID: 4566866676534484, guid: 1e018c2e10a212d4c8d1cf34b4154881, type: 2}
       propertyPath: m_LocalPosition.z
