@@ -35,13 +35,6 @@ public class CellCluster : MonoBehaviour
             numberArr[randomIndex] = temp;
         }
 
-        for (int i = 0; i < numberArr.Length; i++)
-        {
-            Debug.Log(numberArr[i]);
-        }
-
-            
-
     }
 	
 	// Update is called once per frame
@@ -59,7 +52,7 @@ public class CellCluster : MonoBehaviour
     {
         
         yield return new WaitForSeconds(seconds);
-        Debug.Log("Attacking!");
+        
         if (Cells[cellCount])
         {
             Cells[numberArr[cellCount]].Attack();

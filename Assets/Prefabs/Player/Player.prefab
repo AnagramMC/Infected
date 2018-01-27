@@ -20,11 +20,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4566866676534484}
   - component: {fileID: 212471200000179460}
-  - component: {fileID: 95783201132045178}
+  - component: {fileID: 50864039434096684}
   - component: {fileID: 61102737255482810}
+  - component: {fileID: 95783201132045178}
   - component: {fileID: 114124906654115828}
   - component: {fileID: 114244879972646736}
-  - component: {fileID: 50864039434096684}
+  - component: {fileID: 114357439896930280}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -39,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1068331114990762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.17965606, y: -1.8076291, z: 0}
+  m_LocalPosition: {x: 1.3921515, y: 1.3909036, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -132,7 +133,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1310857590139728, guid: ef58b6a87afbc604e992c36f5e2aeabc,
     type: 2}
-  projectileSpawner: {fileID: 0}
+--- !u!114 &114357439896930280
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1068331114990762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35b303189a1920f45988070d22c5276f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCollision: {fileID: 61102737255482810}
+  Camera: {fileID: 0}
+  spriteBlinkingTimer: 0
+  spriteBlinkingMiniDuration: 0.1
+  spriteBlinkingTotalTimer: 0
+  startBlinking: 0
 --- !u!212 &212471200000179460
 SpriteRenderer:
   m_ObjectHideFlags: 1
