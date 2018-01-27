@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 114615730606284366}
   - component: {fileID: 58767443178929904}
   m_Layer: 0
-  m_Name: Cell Cluster
+  m_Name: Cell Cluster 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
