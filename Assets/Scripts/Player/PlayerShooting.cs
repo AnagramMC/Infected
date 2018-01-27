@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
+    public enum WeaponTypes { MachineGun,Shotgun,TriGun}
+    public WeaponTypes curWeaponType;
     public GameObject projectilePrefab;
     public ProjectilePoolManager projectilePool;
     public float lifeTime;
-
+    public GameObject[] projectilePos;
+    public GameObject projectilePivot;
     private Vector2 fireInput;
+    private float degree;
     private float fireAngle;
     private PlayerProjectile projectile;
     private float rateOfFire;
@@ -17,27 +21,60 @@ public class PlayerShooting : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-		
+	    	
 	}
 	
+    public void ChangeWeaponType(WeaponTypes newWeaponType)
+    {
+        curWeaponType = newWeaponType;
+    }
+
 	// Update is called once per frame
 	void Update ()
     {
         //get input of right stick
         fireInput = new Vector2(Input.GetAxisRaw("RightH"), Input.GetAxisRaw("RightV"));
         
-        Debug.Log(fireInput);
-        if (fireInput.sqrMagnitude > 0.0f && canShoot)
+        switch(curWeaponType)
         {
-            fireAngle = Mathf.Atan2(fireInput.y, fireInput.x) * Mathf.Rad2Deg;
-            GameObject curProjectile = projectilePool.MoveProjectileToTarget(transform.position, transform.rotation);
-            curProjectile.SetActive(true);
-            PlayerProjectile projectileScript = curProjectile.GetComponent<PlayerProjectile>();
-            projectileScript.Shoot(fireInput);
-            rateOfFire = projectileScript.rateOfFire;
-            canShoot = false;
-            StartCoroutine(ResetCanShoot());
+            case WeaponTypes.MachineGun:
+                if (fireInput.sqrMagnitude > 0.0f && canShoot)
+                {
+                    fireAngle = Mathf.Atan2(fireInput.y, fireInput.x) * Mathf.Rad2Deg;
+                    projectilePivot.transform.rotation = Quaternion.Euler(new Vector3(0, 0, fireAngle));
+                    GameObject curProjectile = projectilePool.MoveProjectileToTarget(projectilePos[0].transform.position, projectilePos[0].transform.rotation);
+                    curProjectile.SetActive(true);
+                    PlayerProjectile projectileScript = curProjectile.GetComponent<PlayerProjectile>();
+                    projectileScript.Shoot(fireInput);
+                    rateOfFire = projectileScript.rateOfFire;
+                    canShoot = false;
+                    StartCoroutine(ResetCanShoot());
+                }
+                break;
+            case WeaponTypes.Shotgun:
+                
+                break;
+            case WeaponTypes.TriGun:
+                if (fireInput.sqrMagnitude > 0.0f && canShoot)
+                {
+                    fireAngle = Mathf.Atan2(fireInput.y, fireInput.x) * Mathf.Rad2Deg;
+                    for (int i = 0; i <= projectilePos.Length - 1; i++)
+                    {
+                        fireAngle = Mathf.Atan2(fireInput.y, fireInput.x) * Mathf.Rad2Deg;
+                        GameObject curProjectile = projectilePool.MoveProjectileToTarget(projectilePos[i].transform.position, projectilePos[i].transform.rotation);
+                        curProjectile.SetActive(true);
+                        PlayerProjectile projectileScript = curProjectile.GetComponent<PlayerProjectile>();
+                        projectileScript.Shoot(fireInput);
+                        rateOfFire = projectileScript.rateOfFire;
+                    }
+                    canShoot = false;
+                    StartCoroutine(ResetCanShoot());
+                }
+                break;
         }
+
+        Debug.Log(fireInput);
+       
 	}
     
     IEnumerator ResetCanShoot()
