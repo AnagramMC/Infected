@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    private Vector2 moveInput;
+    private Vector2 moveVelocity;
+
     public float speed;
 
 	// Use this for initialization
@@ -18,25 +21,13 @@ public class PlayerMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            rb.AddForce(Vector2.up * speed);
-        }
+        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        moveVelocity = moveInput * speed;
+    }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            rb.AddForce(-Vector2.right * speed);
-        }
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            rb.AddForce(-Vector2.up * speed);
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            rb.AddForce(Vector2.right * speed);
-        }
+    void FixedUpdate()
+    {
+        rb.velocity = moveVelocity;
     }
 }
 
