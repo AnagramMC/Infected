@@ -6,15 +6,13 @@ public class PlayerProjectile : MonoBehaviour
 {
     public float speed;
     public int damage;
-
+    public float rateOfFire;
     private Rigidbody2D rb;
-    public GameObject player;
 
     // Use this for initialization
     void Awake ()
     {
         rb = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("Player");
     }
 	
 	// Update is called once per frame
@@ -26,7 +24,5 @@ public class PlayerProjectile : MonoBehaviour
     public void Shoot(Vector2 direction)
     {
         rb.velocity = direction.normalized * speed;
-
-       // Debug.Log("Shoot!");
     }
 }
