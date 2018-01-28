@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 95783201132045178}
   - component: {fileID: 114124906654115828}
   - component: {fileID: 114244879972646736}
+  - component: {fileID: 114467764706237008}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -291,7 +292,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.48, y: 0.48}
+    oldSize: {x: 0.45, y: 0.44}
     newSize: {x: 0.48, y: 0.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -395,6 +396,19 @@ MonoBehaviour:
   - {fileID: 1867741915423472}
   - {fileID: 1370518737790378}
   projectilePivot: {fileID: 1038408117064994}
+  scoreManager: {fileID: 0}
+--- !u!114 &114467764706237008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1068331114990762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157e75a4bfd83cd41abac8108f0226c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteSheetName: sheet1
 --- !u!135 &135431694960017124
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -489,7 +503,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: aecb16b1a634a394bb5c789266f81bf5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eb5c19b36e8156042a937fc69660d4cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
