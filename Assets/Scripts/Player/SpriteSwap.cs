@@ -10,6 +10,9 @@ public class SpriteSwap : MonoBehaviour
     // The name of the currently loaded sprite sheet
     private string LoadedSpriteSheetName;
 
+    //Get the player shooting script
+    private PlayerShooting playerShootScript;
+
     // The dictionary containing all the sliced up sprites in the sprite sheet
     private Dictionary<string, Sprite> spriteSheet;
 
@@ -19,10 +22,25 @@ public class SpriteSwap : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
+        playerShootScript = GetComponent<PlayerShooting>();
         // Get and cache the sprite renderer for this game object
         this.spriteRenderer = GetComponent<SpriteRenderer>();
 
         this.LoadSpriteSheet();
+    }
+
+    private void Update()
+    {
+        //change sprite sheet name based on weapon type
+        switch (playerShootScript.curWeaponType)
+        {
+            case PlayerShooting.WeaponTypes.MachineGun:
+                break;
+            case PlayerShooting.WeaponTypes.Shotgun:
+                break;
+            case PlayerShooting.WeaponTypes.TriGun:
+                break;
+        }
     }
 
     // Runs after the animation has done its work
