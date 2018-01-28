@@ -5,7 +5,10 @@ using UnityEngine;
 public class DestroyOnTrigger : MonoBehaviour {
 
     public GameObject ExplosionArt;
+    public Animator pillAnim;
+
     private EnemyHealth healthScript;
+
     private void Awake()
     {
         healthScript = GetComponent<EnemyHealth>();
@@ -17,6 +20,7 @@ public class DestroyOnTrigger : MonoBehaviour {
         if(curString=="Player")
         {
             Instantiate(ExplosionArt, transform.position,transform.rotation);
+            pillAnim.SetBool("isExploding", true);
             healthScript.OnDamage(1);
         }
     }
