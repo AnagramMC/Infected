@@ -10,7 +10,7 @@ public class PickUp : MonoBehaviour
     [SerializeField]
     pickUpTypes pickUp;
     private PlayerShooting shootScript;
-    private PlayerHealth healthScript;
+    private ScoreManager ScoreManager;
 
     private void Awake()
     {
@@ -18,7 +18,7 @@ public class PickUp : MonoBehaviour
         switch (pickUp)
         {
             case pickUpTypes.LIFE:
-                healthScript = player.transform.GetChild(0).GetComponent<PlayerHealth>();
+                ScoreManager = FindObjectOfType<ScoreManager>();
                 break;
 
             case pickUpTypes.SHOTGUN:
@@ -42,7 +42,7 @@ public class PickUp : MonoBehaviour
             switch(pickUp)
             {
                 case pickUpTypes.LIFE:
-                    healthScript.AddLife();
+                    ScoreManager.AddLife();
                     Destroy(gameObject);
 
                     break;

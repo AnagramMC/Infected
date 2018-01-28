@@ -7,8 +7,6 @@ public class PlayerHealth : MonoBehaviour
     public BoxCollider2D playerCollision;
     public GameObject Camera;
 
-    private int lives = 3;
-
     public bool dead = false;
 
     public float spriteBlinkingTimer = 0.0f;
@@ -16,6 +14,8 @@ public class PlayerHealth : MonoBehaviour
     public float spriteBlinkingTotalTimer = 0.0f;
    // public float spriteBlinkingTotalDuration = 1.0f;
     public bool startBlinking = false;
+
+    private bool isDamaged = false;
     // Use this for initialization
     private void Awake()
     {
@@ -32,16 +32,13 @@ public class PlayerHealth : MonoBehaviour
 
     public void OnDamage()
     {
-        
-        lives--;
-        Debug.Log(lives);
+
+        FindObjectOfType<ScoreManager>().LoseLife();
+        isDamaged = false;
         StartCoroutine(RespawnWait(2));
     }
 
-    public void AddLife()
-    {
-        lives++;
-    }
+    
 
     IEnumerator RespawnWait(int seconds)
     {
@@ -50,6 +47,7 @@ public class PlayerHealth : MonoBehaviour
         transform.parent.position = Camera.transform.Find("Death Location").transform.position;
         Debug.Log("RESPAWN WAIT");
         yield return new WaitForSeconds(seconds);
+        isDamaged = false;
         transform.parent.position = Camera.transform.Find("Spawn Location").transform.position;
         this.gameObject.SetActive(true);
         StartCoroutine(CollisionDelay(2));
@@ -97,7 +95,14 @@ public class PlayerHealth : MonoBehaviour
     {
         if (col.tag == "Enemy")
         {
-            OnDamage();
+            if (!isDamaged)
+            {
+                
+                OnDamage();
+
+                isDamaged = true;
+
+            }
         }
     }
 
