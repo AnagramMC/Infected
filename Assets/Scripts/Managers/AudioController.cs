@@ -25,6 +25,11 @@ public class AudioController : MonoBehaviour {
     public float powerUpDelay;
     public float maxPowerUpDelay;
 
+    [Header("MedicineExplosion")]
+    public AudioSource MedExplosionSource;
+    public float MedExplosionDelay;
+    public float maxMedExplosionDelay;
+
 
     // Audio timers
     float timer_01, timer_02;
@@ -98,6 +103,23 @@ public class AudioController : MonoBehaviour {
                 powerUpSource.minDistance = 20f;
                 powerUpSource.loop = false;
                 powerUpSource.Play();
+
+                timer_02 = 0f;
+            }
+        }
+    }
+    public void MedicineExplosion(Vector3 pos)
+    {
+        if (timer_02 >= maxMedExplosionDelay)
+        {
+
+            if (MedExplosionSource != null)
+            {
+                MedExplosionSource.pitch = Random.Range(0.5f, 0.8f);
+                MedExplosionSource.volume = Random.Range(0.8f, 1f);
+                MedExplosionSource.minDistance = 20f;
+                MedExplosionSource.loop = false;
+                MedExplosionSource.Play();
 
                 timer_02 = 0f;
             }

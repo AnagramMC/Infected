@@ -14,12 +14,13 @@ public class PlayerHealth : MonoBehaviour
     public float spriteBlinkingTotalTimer = 0.0f;
    // public float spriteBlinkingTotalDuration = 1.0f;
     public bool startBlinking = false;
-
+    private AudioController audioScript;
     private bool isDamaged = false;
     // Use this for initialization
     private void Awake()
     {
         Camera = GameObject.FindGameObjectWithTag("MainCamera");
+        audioScript = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>();
     }
     // Update is called once per frame
     void Update ()
@@ -42,6 +43,10 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator RespawnWait(int seconds)
     {
+        if(audioScript)
+        {
+            audioScript.PlayerHit(transform.position);
+        }
         playerCollision.enabled = false;
         dead = true;
         transform.parent.position = Camera.transform.Find("Death Location").transform.position;

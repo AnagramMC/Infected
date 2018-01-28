@@ -6,7 +6,7 @@ public class Pill2 : MonoBehaviour
 {
     public GameObject miniPillPrefab;
     public GameObject[] spawnPoints;
-
+    private AudioController audioScript;
     public GameObject Target;
     public Animator pillAnim;
 
@@ -15,8 +15,13 @@ public class Pill2 : MonoBehaviour
 
     private Rigidbody2D rb;
 
-	// Use this for initialization
-	void Start ()
+    private void Awake()
+    {
+        audioScript = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>();
+    }
+
+    // Use this for initialization
+    void Start ()
     {
         rb = GetComponent<Rigidbody2D>();
 
@@ -41,6 +46,7 @@ public class Pill2 : MonoBehaviour
         {
             Instantiate(miniPillPrefab, spawnPoints[i].transform.position, spawnPoints[i].transform.rotation);
         }
+        audioScript.MedicineExplosion(transform.position);
         pillAnim.SetBool("isExploding", true);
     }
 
