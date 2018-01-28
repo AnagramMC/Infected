@@ -13,6 +13,9 @@ public class ScoreManager : MonoBehaviour
     public Text scoreText;
     public Text lifeText;
     public Text[] topScoresText;
+    public GameObject player;
+    public GameObject HUD;
+    public GameObject GameOverMenu;
 
     private int[] topScores;
 
@@ -73,6 +76,11 @@ public class ScoreManager : MonoBehaviour
 
         if(lives <= 0)
         {
+            player.SetActive(false);
+            HUD.SetActive(false);
+            GameOverMenu.SetActive(true);
+            Time.timeScale = 0.0f;
+
             // GAME OVER
         }
     }
