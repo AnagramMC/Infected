@@ -39,6 +39,7 @@ public class RedBloodCell : MonoBehaviour
     public void ReturnPosition()
     {
         transform.position = originalPosition;
+       // transform.parent.gameObject.GetComponent<CellCluster>();
     }
 
     void OnTriggerEnter2D(Collider2D col)

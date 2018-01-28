@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public enum EnemyTypes {RedBlood,WhiteBlood,Med1,Med2 }
+    public enum EnemyTypes {RedBlood,WhiteBlood,Med1,Med2,Projectile}
     public EnemyTypes CurrentEnemyType;
     private GameObject poolObject;
     private ObjectPool poolScript;
