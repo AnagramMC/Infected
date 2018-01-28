@@ -112,6 +112,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &176475805 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114943397648984114, guid: 2ef25a2ba871d6948a8914939f6de50f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1539827684}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &428172167
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +398,18 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2481e87c0088613438b23e8b290eb705, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &691566312 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114828587468455704, guid: 2ef25a2ba871d6948a8914939f6de50f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1539827684}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &745883157 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114559897833951916, guid: 2ef25a2ba871d6948a8914939f6de50f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1539827684}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &751231278
 Prefab:
   m_ObjectHideFlags: 0
@@ -438,12 +456,30 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c717b15eec8d0ac47a0b5bae200f0181, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &774497328 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114149374382076112, guid: 2ef25a2ba871d6948a8914939f6de50f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1539827684}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &803633515 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114997321703477404, guid: dcd4e601a46d44c49bb1f61fa1870261,
     type: 2}
   m_PrefabInternal: {fileID: 670915257}
   m_Script: {fileID: 11500000, guid: 5ac16f48f3a065e4db263fa8ad0b870e, type: 3}
+--- !u!114 &1221717885 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114552206576633224, guid: 2ef25a2ba871d6948a8914939f6de50f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1539827684}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1488946888 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114018894247768032, guid: 2ef25a2ba871d6948a8914939f6de50f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1539827684}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1514109751
 Prefab:
   m_ObjectHideFlags: 0
@@ -492,37 +528,37 @@ Prefab:
         type: 2}
       propertyPath: scoreText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1657702322}
     - target: {fileID: 114013260254219474, guid: 447e8b1b386f65948896176489203905,
         type: 2}
       propertyPath: lifeText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1488946888}
     - target: {fileID: 114013260254219474, guid: 447e8b1b386f65948896176489203905,
         type: 2}
       propertyPath: topScoresText.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1221717885}
     - target: {fileID: 114013260254219474, guid: 447e8b1b386f65948896176489203905,
         type: 2}
       propertyPath: topScoresText.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 691566312}
     - target: {fileID: 114013260254219474, guid: 447e8b1b386f65948896176489203905,
         type: 2}
       propertyPath: topScoresText.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 745883157}
     - target: {fileID: 114013260254219474, guid: 447e8b1b386f65948896176489203905,
         type: 2}
       propertyPath: topScoresText.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 176475805}
     - target: {fileID: 114013260254219474, guid: 447e8b1b386f65948896176489203905,
         type: 2}
       propertyPath: topScoresText.Array.data[4]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 774497328}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 447e8b1b386f65948896176489203905, type: 2}
   m_IsPrefabParent: 0
@@ -680,6 +716,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ef25a2ba871d6948a8914939f6de50f, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1657702322 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114715829729221692, guid: 2ef25a2ba871d6948a8914939f6de50f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1539827684}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1676555405
 Prefab:
   m_ObjectHideFlags: 0
