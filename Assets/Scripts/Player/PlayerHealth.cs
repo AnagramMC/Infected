@@ -33,10 +33,12 @@ public class PlayerHealth : MonoBehaviour
 
     public void OnDamage()
     {
-
-        FindObjectOfType<ScoreManager>().LoseLife();
-        isDamaged = false;
-        StartCoroutine(RespawnWait(2));
+        if (gameObject.activeSelf == true)
+        {
+            FindObjectOfType<ScoreManager>().LoseLife();
+            isDamaged = false;
+            StartCoroutine(RespawnWait(2));
+        }
     }
 
     

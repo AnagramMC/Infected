@@ -6,7 +6,7 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
 
-    private static int score = 0;
+    private int score = 0;
 
     private int lives = 3;
 
@@ -17,7 +17,7 @@ public class ScoreManager : MonoBehaviour
     public GameObject HUD;
     public GameObject GameOverMenu;
 
-    private int[] topScores;
+    private static int[] topScores = {0, 0, 0 ,0 ,0};
 
 	// Use this for initialization
 	void Start ()
@@ -25,12 +25,7 @@ public class ScoreManager : MonoBehaviour
         UpdateScore();
         UpdateLife();
 
-        topScores = new int[5];
-
-        for(int i = 0; i < topScores.Length; i ++)
-        {
-            topScores[i] = 0;
-        }
+        
 
         TopScoresUpdate();
 	}
@@ -76,6 +71,8 @@ public class ScoreManager : MonoBehaviour
 
         if(lives <= 0)
         {
+            CheckHighScores();
+            UpdateScore();
             player.SetActive(false);
             HUD.SetActive(false);
             GameOverMenu.SetActive(true);
@@ -96,21 +93,25 @@ public class ScoreManager : MonoBehaviour
     public void CheckHighScores ()
     {
         int temp = 0;
+        bool topScore = false;
 
-        for(int i = topScores.Length - 1; i >= 0; i--)
+        for(int i = 0; i < topScores.Length; i++)
         {
-            if (score > topScores[i])
+            if (!topScore)
             {
-                temp = topScores[i];
-                topScores[i] = score;
-
-                int temp2;
-                for (int j = i; j >= 0; j--)
+                if (score > topScores[i])
                 {
-                    temp2 = topScores[j];
-                    topScores[j] = temp;
-                    temp = temp2;
+                    temp = topScores[i];
+                    topScores[i] = score;
+                    topScore = true;
+
                 }
+            }
+            else
+            {
+                int temp2 = topScores[i];
+                topScores[i] = temp;
+                temp = temp2;
             }
         }
 
