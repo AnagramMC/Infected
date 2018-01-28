@@ -47,12 +47,14 @@ public class PlayerProjectile : MonoBehaviour
         if(col.tag == "Border")
         {
             this.gameObject.SetActive(false);
+            
             ReturnProjectile();
         }
     }
 
     public void ReturnProjectile()
     {
+        StopCoroutine(CountDownToReturn());
         pool.ReturnProjectileToPool(this.gameObject);
     }
 }

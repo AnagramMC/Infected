@@ -47,12 +47,12 @@ public class PlayerShooting : MonoBehaviour
                     fireAngle = Mathf.Atan2(fireInput.y, fireInput.x) * Mathf.Rad2Deg;
                     projectilePivot.transform.rotation = Quaternion.Euler(new Vector3(0, 0, fireAngle));
                     GameObject curProjectile = projectilePool.MoveProjectileToTarget(projectilePos[0].transform.position, projectilePos[0].transform.rotation);
-                    curProjectile.SetActive(true);
                     PlayerProjectile projectileScript = curProjectile.GetComponent<PlayerProjectile>();
                     projectileScript.changeLifeSpan(2);
+                    curProjectile.SetActive(true);
                     projectileScript.StartTimer();
                     projectileScript.Shoot(fireInput);
-                    rateOfFire = projectileScript.rateOfFire;
+                    rateOfFire = projectileScript.rateOfFire ;
                     canShoot = false;
                     StartCoroutine(ResetCanShoot());
                 }
