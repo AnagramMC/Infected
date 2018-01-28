@@ -8,12 +8,16 @@ public class ScoreManager : MonoBehaviour
 
     private static int score = 0;
 
+    private int lives = 3;
+
     public Text scoreText;
+    public Text lifeText;
 
 	// Use this for initialization
 	void Start ()
     {
         UpdateScore();
+        UpdateLife();
 	}
 	
 	// Update is called once per frame
@@ -38,4 +42,26 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
+    public void UpdateLife()
+    {
+        lifeText.text = lives.ToString();
+    }
+
+    public void AddLife()
+    {
+        lives++;
+        UpdateLife();
+    }
+
+    public void LoseLife()
+    {
+        lives--;
+
+        UpdateLife();
+
+        if(lives <= 0)
+        {
+            // GAME OVER
+        }
+    }
 }
