@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 4226377914293536}
   - component: {fileID: 114615730606284366}
   - component: {fileID: 58767443178929904}
+  - component: {fileID: 114258684162778054}
   m_Layer: 0
   m_Name: Cell Cluster
   m_TagString: Untagged
@@ -668,6 +669,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+--- !u!114 &114258684162778054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1481731151382866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2305db76acac21419914491293f50ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  ShouldMove: 1
 --- !u!114 &114327434838887254
 MonoBehaviour:
   m_ObjectHideFlags: 1

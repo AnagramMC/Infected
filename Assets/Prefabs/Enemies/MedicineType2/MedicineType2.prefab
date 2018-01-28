@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 50799732590451970}
   - component: {fileID: 58009582475710748}
   - component: {fileID: 114185843828390580}
+  - component: {fileID: 114027348120763398}
   m_Layer: 0
   m_Name: MedicineType2
   m_TagString: Enemy
@@ -194,6 +195,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &114027348120763398
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1656486840387060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2305db76acac21419914491293f50ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  ShouldMove: 1
 --- !u!114 &114185843828390580
 MonoBehaviour:
   m_ObjectHideFlags: 1

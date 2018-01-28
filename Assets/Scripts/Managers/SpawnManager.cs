@@ -33,7 +33,10 @@ public class SpawnManager : MonoBehaviour
     public float waitForNextSpawn = 0.5f;
     public float waitForNextDifficulty = 1f;
     private int difficultyMultiplier=1;
-
+    public GameObject[] spawnRange;
+    private float minX;
+    private float maxX;
+    private float defaultY;
     Quaternion tempRot;
     // Update the total weight when the user modifies Inspector properties,
     // and on initialization at runtime.
@@ -50,12 +53,14 @@ public class SpawnManager : MonoBehaviour
     // to run this code once during Awake:
     void Awake()
     {
+        minX = spawnRange[0].transform.position.x;
+        maxX = spawnRange[1].transform.position.x;
+        defaultY = transform.position.y;
         OnValidate();
     }
 
     private void Start()
     {
-        
         Spawn();
     }
     // Spawn an item randomly, according to the relative weights.
@@ -73,8 +78,9 @@ public class SpawnManager : MonoBehaviour
             chosenIndex++;
             cumulativeWeight += spawnList[chosenIndex].weight;
         }
+        spawnLocation.x = Random.Range(minX, maxX);
+        spawnLocation.y = defaultY;
         //determine spawn location
-        spawnLocation = Random.insideUnitCircle * 20;
         //get pool from current chosen index
         gameObjectPool = spawnList[chosenIndex].gameObject.GetComponent<ObjectPool>();
         //get current object from pool

@@ -17,13 +17,12 @@ public class PlayerHealth : MonoBehaviour
    // public float spriteBlinkingTotalDuration = 1.0f;
     public bool startBlinking = false;
     // Use this for initialization
-    void Start ()
+    private void Awake()
     {
-        //OnDamage();
-	}
-	
-	// Update is called once per frame
-	void Update ()
+        Camera = GameObject.FindGameObjectWithTag("MainCamera");
+    }
+    // Update is called once per frame
+    void Update ()
     {
 		if (startBlinking)
         {

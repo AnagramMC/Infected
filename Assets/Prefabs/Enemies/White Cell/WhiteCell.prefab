@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114215660155447764}
   - component: {fileID: 50976186082157966}
   - component: {fileID: 58016048965567684}
+  - component: {fileID: 114680417510704556}
   m_Layer: 0
   m_Name: WhiteCell
   m_TagString: Untagged
@@ -212,6 +213,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfbf434ba1f04f84184cc96d0e68062a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114680417510704556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201757289274866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2305db76acac21419914491293f50ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  ShouldMove: 1
 --- !u!212 &212546640658014498
 SpriteRenderer:
   m_ObjectHideFlags: 1
