@@ -40,7 +40,7 @@ public class PlayerHealth : MonoBehaviour
         {
             FindObjectOfType<ScoreManager>().LoseLife();
             isDamaged = false;
-            cameraShakeScript.Enable();
+            //cameraShakeScript.Enable();
             StartCoroutine(RespawnWait(2));
         }
     }

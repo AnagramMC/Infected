@@ -102,7 +102,7 @@ public class EnemyHealth : MonoBehaviour
             {
                 OnDamage(playerBullet.damage);
                 playerBullet.ReturnProjectile();
-                cameraShakeScript.Enable();
+                //cameraShakeScript.Enable();
             }
 
 

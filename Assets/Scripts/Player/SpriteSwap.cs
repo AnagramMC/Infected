@@ -35,10 +35,13 @@ public class SpriteSwap : MonoBehaviour
         switch (playerShootScript.curWeaponType)
         {
             case PlayerShooting.WeaponTypes.MachineGun:
+                SpriteSheetName = "virus";
                 break;
             case PlayerShooting.WeaponTypes.Shotgun:
+                SpriteSheetName = "virusShotgun";
                 break;
             case PlayerShooting.WeaponTypes.TriGun:
+                SpriteSheetName = "virus";
                 break;
         }
     }
