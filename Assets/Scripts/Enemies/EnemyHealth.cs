@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-
+    public enum EnemyTypes {RedBlood,WhiteBlood,Med1,Med2 }
+    public EnemyTypes CurrentEnemyType;
+    private GameObject poolObject;
+    private ObjectPool poolScript;
     public int maxHealth;
     private int health;
 
 	// Use this for initialization
-	void Start ()
+	void Awake ()
     {
         health = maxHealth;
-	}
+        switch (CurrentEnemyType)
+        {
+            case EnemyTypes.RedBlood:
+                poolObject = GameObject.FindGameObjectWithTag("RedBloodPool");
+                break;
+            case EnemyTypes.WhiteBlood:
+                poolObject = GameObject.FindGameObjectWithTag("WhiteBloodPool");
+                break;
+            case EnemyTypes.Med1:
+                poolObject = GameObject.FindGameObjectWithTag("Med1Pool");
+                break;
+            case EnemyTypes.Med2:
+                poolObject = GameObject.FindGameObjectWithTag("Med2Pool");
+                break;
+        }
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -34,8 +52,21 @@ public class EnemyHealth : MonoBehaviour
             }
             
             // Destroying logic with object pool, MAKE SURE TO RESET HEALTH AFTERT REMOVING
-            //health = maxHealth;
+            
+            health = maxHealth;
+
         }
+    }
+
+    public void ReturnToPool()
+    {
+        if(poolObject)
+        {
+            poolScript = poolObject.GetComponent<ObjectPool>();
+            poolScript.PlaceObject(gameObject);
+        }
+        
+
     }
 
     void OnTriggerEnter2D(Collider2D col)

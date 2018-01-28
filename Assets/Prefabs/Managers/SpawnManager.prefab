@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 114941741998978832}
   m_Layer: 0
   m_Name: WhiteCellPool
-  m_TagString: Untagged
+  m_TagString: WhiteBloodPool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 114547757500343066}
   m_Layer: 0
   m_Name: RedCellPool
-  m_TagString: Untagged
+  m_TagString: RedBloodPool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 114044399842254634}
   m_Layer: 0
   m_Name: MedicineType2Pool
-  m_TagString: Untagged
+  m_TagString: Med2Pool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 114875535336796190}
   m_Layer: 0
   m_Name: MedicineType1Pool
-  m_TagString: Untagged
+  m_TagString: Med1Pool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +130,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1105365388153038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31.1, y: 0, z: 0}
+  m_LocalPosition: {x: 11.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4434805900335222}
@@ -182,7 +182,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1486727329651876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 10.8, z: 2.526973}
+  m_LocalPosition: {x: 0.02, y: 11.3, z: 2.526973}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4424898400089734}
@@ -214,7 +214,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1426175412752136}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.8, y: 0, z: 0}
+  m_LocalPosition: {x: -10.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4434805900335222}

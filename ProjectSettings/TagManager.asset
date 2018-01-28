@@ -7,6 +7,10 @@ TagManager:
   - Enemy
   - Player Projectile
   - Border
+  - RedBloodPool
+  - WhiteBloodPool
+  - Med1Pool
+  - Med2Pool
   layers:
   - Default
   - TransparentFX
