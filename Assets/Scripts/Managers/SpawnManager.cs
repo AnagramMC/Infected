@@ -22,7 +22,7 @@ public class SpawnManager : MonoBehaviour
 
     // Now expose an array of these to be populated in the Inspector.
     public Spawnable[] spawnList;
-
+    private AudioController audioScript;
     // Track the total weight used in the whole array.
     float _totalSpawnWeight;
     private ObjectPool gameObjectPool;
@@ -56,12 +56,17 @@ public class SpawnManager : MonoBehaviour
         minX = spawnRange[0].transform.position.x;
         maxX = spawnRange[1].transform.position.x;
         defaultY = transform.position.y;
+        audioScript = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>();
         OnValidate();
     }
 
     private void Start()
     {
         Spawn();
+        if(audioScript)
+        {
+            audioScript.BackgroundMusic();
+        }
     }
     // Spawn an item randomly, according to the relative weights.
     public void Spawn()

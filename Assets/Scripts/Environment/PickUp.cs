@@ -12,10 +12,11 @@ public class PickUp : MonoBehaviour
     private PlayerShooting shootScript;
     private ScoreManager ScoreManager;
     private PowerUpManager powerUpManager;
-
+    private AudioController audioScript;
     private void Awake()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+        audioScript = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>();
         switch (pickUp)
         {
             case pickUpTypes.LIFE:
@@ -70,7 +71,10 @@ public class PickUp : MonoBehaviour
                     //Grenade
                     break;
             }
-
+            if(audioScript)
+            {
+                audioScript.PowerUpObtained(transform.position);
+            }
         }
     }
 }

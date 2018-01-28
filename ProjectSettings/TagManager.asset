@@ -12,6 +12,7 @@ TagManager:
   - Med1Pool
   - Med2Pool
   - Background
+  - AudioController
   layers:
   - Default
   - TransparentFX
