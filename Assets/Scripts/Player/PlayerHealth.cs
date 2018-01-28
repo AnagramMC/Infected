@@ -8,19 +8,22 @@ public class PlayerHealth : MonoBehaviour
     public GameObject Camera;
 
     public bool dead = false;
-
     public float spriteBlinkingTimer = 0.0f;
     public float spriteBlinkingMiniDuration = 0.1f;
     public float spriteBlinkingTotalTimer = 0.0f;
    // public float spriteBlinkingTotalDuration = 1.0f;
     public bool startBlinking = false;
+
+    private CameraShake cameraShakeScript;
     private AudioController audioScript;
     private bool isDamaged = false;
+    
     // Use this for initialization
     private void Awake()
     {
         Camera = GameObject.FindGameObjectWithTag("MainCamera");
         audioScript = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>();
+        cameraShakeScript = Camera.GetComponent<CameraShake>();
     }
     // Update is called once per frame
     void Update ()
@@ -37,6 +40,7 @@ public class PlayerHealth : MonoBehaviour
         {
             FindObjectOfType<ScoreManager>().LoseLife();
             isDamaged = false;
+            cameraShakeScript.Enable();
             StartCoroutine(RespawnWait(2));
         }
     }

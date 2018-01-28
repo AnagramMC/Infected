@@ -7,6 +7,7 @@ public class CameraShake : MonoBehaviour {
 
     public float linearIntensity = 0.25f;
     public float angularIntensity = 5f;
+    public float screenShakeTime = 0.1f;
 
     [NonSerialized] public bool isShaking = false;
 
@@ -27,6 +28,8 @@ public class CameraShake : MonoBehaviour {
             LinearShaking();
             if (angularShaking)
                 AngularShaking();
+
+            StartCoroutine(DisableShake());
         }
     }
 
@@ -62,5 +65,11 @@ public class CameraShake : MonoBehaviour {
         isShaking = false;
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
+    }
+
+    IEnumerator DisableShake()
+    {
+        yield return new WaitForSeconds(screenShakeTime);
+        isShaking = false;
     }
 }
