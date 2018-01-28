@@ -76,7 +76,7 @@ public class SpawnManager : MonoBehaviour
         float pick = Random.value * _totalSpawnWeight;
         int chosenIndex = 0;
         float cumulativeWeight = spawnList[0].weight;
-
+        curSpawnNumber -=Mathf.RoundToInt(cumulativeWeight);
         // Step through the list until we've accumulated more weight than this.
         // The length check is for safety in case rounding errors accumulate.
         while (pick > cumulativeWeight && chosenIndex < spawnList.Length - 1)

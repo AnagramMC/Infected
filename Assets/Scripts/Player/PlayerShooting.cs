@@ -13,7 +13,7 @@ public class PlayerShooting : MonoBehaviour
     public GameObject projectilePivot;
     public ScoreManager scoreManager;
     private SpawnManager spawnScript;
-
+    
 
     private Vector2 fireInput;
     private float degree;
@@ -38,10 +38,10 @@ public class PlayerShooting : MonoBehaviour
     {
         //get input of right stick
         fireInput = new Vector2(Input.GetAxisRaw("RightH"), Input.GetAxisRaw("RightV"));
-        if(Input.GetButton("Fire1"))
-        {
-            spawnScript.ClearAllCurrentEnemies();
-        }
+        //if(Input.GetButton("Fire1"))
+        //{
+        //    spawnScript.ClearAllCurrentEnemies();
+        //}
         switch(curWeaponType)
         {
             case WeaponTypes.MachineGun:

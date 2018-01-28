@@ -56,7 +56,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4692434584097232}
-  - component: {fileID: 114436678924571904}
   m_Layer: 0
   m_Name: ProjectilePositionPivot
   m_TagString: Untagged
@@ -99,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1201757289274866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.020226, y: 3.61366, z: 0}
+  m_LocalPosition: {x: -18.395802, y: -105.811195, z: -23.910145}
   m_LocalScale: {x: 7.336719, y: 7.336717, z: 7.336717}
   m_Children:
   - {fileID: 4038368862309064}
@@ -217,17 +216,6 @@ MonoBehaviour:
   MuzzleArt: {fileID: 0}
   FireRate: 1
   PlayerNear: 1
---- !u!114 &114436678924571904
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1761659879744554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfbf434ba1f04f84184cc96d0e68062a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114680417510704556
 MonoBehaviour:
   m_ObjectHideFlags: 1
