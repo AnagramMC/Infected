@@ -100,7 +100,10 @@ public class EnemyHealth : MonoBehaviour
 
             if (playerBullet)
             {
-                OnDamage(playerBullet.damage);
+                if (CurrentEnemyType != EnemyTypes.Projectile)
+                {
+                    OnDamage(playerBullet.damage);
+                }
                 playerBullet.ReturnProjectile();
                 //cameraShakeScript.Enable();
             }
