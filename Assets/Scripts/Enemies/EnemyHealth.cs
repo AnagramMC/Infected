@@ -8,6 +8,7 @@ public class EnemyHealth : MonoBehaviour
     public EnemyTypes CurrentEnemyType;
 
     private CameraShake cameraShakeScript;
+    private Animator currentAnim;
     private GameObject poolObject;
     private ObjectPool poolScript;
     public int maxHealth;
@@ -49,30 +50,33 @@ public class EnemyHealth : MonoBehaviour
         
         if (health <= 0)
         {
-            
+            health = maxHealth;
+
+            ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
+
+            if (scoreManager)
+            {
+                scoreManager.AddScore(score);
+            }
 
             if (CurrentEnemyType == EnemyTypes.RedBlood)
             {
                 GetComponent<RedBloodCell>().ReturnPosition();
             }
+            if (CurrentEnemyType == EnemyTypes.WhiteBlood)
+            {
+                currentAnim = GetComponentInChildren<Animator>();
+                currentAnim.SetBool("isDead", true);
+                return;
+            }
 
-
-            if(GetComponent<MiniPill>())
+            if (GetComponent<MiniPill>())
             {
                 Destroy(this.gameObject);
             }
 
             
-            // Destroying logic with object pool, MAKE SURE TO RESET HEALTH AFTERT REMOVING
-            
-            health = maxHealth;
-
-            ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
-
-            if(scoreManager)
-            {
-                scoreManager.AddScore(score);
-            }
+            // Destroying logic with object pool, MAKE SURE TO RESET HEALTH AFTERT REMOVING 
 
             gameObject.SetActive(false);
 
