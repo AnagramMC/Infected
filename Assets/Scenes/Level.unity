@@ -1552,6 +1552,11 @@ Prefab:
       propertyPath: projectilePool
       value: 
       objectReference: {fileID: 803633515}
+    - target: {fileID: 114124906654115828, guid: 1e018c2e10a212d4c8d1cf34b4154881,
+        type: 2}
+      propertyPath: speed
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1e018c2e10a212d4c8d1cf34b4154881, type: 2}
   m_IsPrefabParent: 0

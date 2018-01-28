@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6ed45ea6cfe7be4483a24f37c44ab36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 8
 --- !u!114 &114528721234168042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6355d0d758f7a469c09f18a10144d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentEnemyType: 0
   maxHealth: 100
 --- !u!212 &212507986281824896
 SpriteRenderer:
