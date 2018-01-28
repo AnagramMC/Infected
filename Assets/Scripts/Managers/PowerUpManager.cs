@@ -53,6 +53,7 @@ public class PowerUpManager : MonoBehaviour
     {
         powerSlider.gameObject.SetActive(true);
         powerSlider.value = powerSlider.maxValue;
+        timeLeft = 30;
         startTimer = true;
     }
 

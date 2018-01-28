@@ -10,6 +10,7 @@ public class PlayerShooting : MonoBehaviour
     public ProjectilePoolManager projectilePool;
     public float lifeTime;
     public GameObject[] projectilePos;
+    public GameObject[] machinePos;
     public GameObject projectilePivot;
     public ScoreManager scoreManager;
     private SpawnManager spawnScript;
@@ -64,7 +65,7 @@ public class PlayerShooting : MonoBehaviour
                 if (fireInput.sqrMagnitude > 0.0f && canShoot)
                 {
                     fireAngle = Mathf.Atan2(fireInput.y, fireInput.x) * Mathf.Rad2Deg;
-                    for (int i = 0; i <= projectilePos.Length - 1; i++)
+                    for (int i = 0; i < projectilePos.Length; i++)
                     {
                         fireAngle = Mathf.Atan2(fireInput.y, fireInput.x) * Mathf.Rad2Deg;
                         projectilePivot.transform.rotation = Quaternion.Euler(new Vector3(0, 0, fireAngle));
@@ -84,17 +85,17 @@ public class PlayerShooting : MonoBehaviour
             case WeaponTypes.TriGun:
                 if (fireInput.sqrMagnitude > 0.0f && canShoot)
                 {
-                    for (int i = 0; i <= 2; i++)
+                    for (int i = 0; i < machinePos.Length; i++)
                     {
                         fireAngle = Mathf.Atan2(fireInput.y, fireInput.x) * Mathf.Rad2Deg;
                         projectilePivot.transform.rotation = Quaternion.Euler(new Vector3(0, 0, fireAngle));
-                        GameObject curProjectile = projectilePool.MoveProjectileToTarget(projectilePos[i].transform.position, projectilePos[i].transform.rotation);
+                        GameObject curProjectile = projectilePool.MoveProjectileToTarget(machinePos[i].transform.position, machinePos[i].transform.rotation);
                         PlayerProjectile projectileScript = curProjectile.GetComponent<PlayerProjectile>();
                         projectileScript.changeLifeSpan(1);
                         curProjectile.SetActive(true);
                         projectileScript.StartTimer();
                         projectileScript.Shoot(projectilePos[i].transform.right);
-                        rateOfFire = projectileScript.lifeSpan;
+                        rateOfFire = 0.2f;
 
                         canShoot = false;
                         StartCoroutine(ResetCanShoot());
