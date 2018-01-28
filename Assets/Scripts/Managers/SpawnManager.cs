@@ -104,6 +104,12 @@ public class SpawnManager : MonoBehaviour
                 curObject.transform.position = spawnLocation;
                 //set current object active
                 curObject.SetActive(true);
+
+               if(curObject.GetComponent<CellCluster>())
+                 {
+                   Debug.Log("USED");
+                   curObject.GetComponent<CellCluster>().TurnCellsOn();
+                 }
             }
         }
 

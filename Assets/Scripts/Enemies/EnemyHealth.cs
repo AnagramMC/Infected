@@ -48,10 +48,17 @@ public class EnemyHealth : MonoBehaviour
         {
             
 
-            if (GetComponent<RedBloodCell>())
+            if (CurrentEnemyType == EnemyTypes.RedBlood)
             {
                 GetComponent<RedBloodCell>().ReturnPosition();
             }
+
+
+            if(GetComponent<MiniPill>())
+            {
+                Destroy(this.gameObject);
+            }
+
             
             // Destroying logic with object pool, MAKE SURE TO RESET HEALTH AFTERT REMOVING
             

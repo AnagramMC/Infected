@@ -68,7 +68,6 @@ public class ShootProjectiles : MonoBehaviour {
 
                         if(whiteProjectile)
                         {
-                            Debug.Log("GOTIT");
                             whiteProjectile.startShot();
                         }
                     }

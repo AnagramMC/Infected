@@ -16,7 +16,7 @@ public class CellCluster : MonoBehaviour
     private bool hasAttacked = false;
 
 	// Use this for initialization
-	void Start ()
+	void Awake ()
     {
         numofCells = Cells.Length;
 
@@ -61,7 +61,7 @@ public class CellCluster : MonoBehaviour
                 if (cellCount >= numofCells)
                 {
                     cellCount = 0;
-                   Restart();
+                  // Restart();
                 }
                 else
                 {
@@ -70,17 +70,17 @@ public class CellCluster : MonoBehaviour
             }
             else
             {
-                Debug.Log("DEAD CELL!");
+                
                 cellCount++;
 
                 if (cellCount >= numofCells)
                 {
                     cellCount = 0;
-                    Restart();
+                    //Restart();
                 }
                 else
                 {
-                    Debug.Log("Fire CELL!");
+                   
                     FireCell();
                 }
 
@@ -91,7 +91,7 @@ public class CellCluster : MonoBehaviour
             StartCoroutine(LaunchWait(1));
         }
 
-        Debug.Log(cellCount);
+
     }
 
     IEnumerator LaunchWait(int seconds)
@@ -124,15 +124,37 @@ public class CellCluster : MonoBehaviour
 
        poolScript.PlaceObject(this.gameObject);
 
+        hasAttacked = false;
+
     }
 
     public void TurnCellsOn()
     {
         for (int i = 0; i < Cells.Length; i++)
         {
+            Cells[i].ReturnPosition();
             Cells[i].gameObject.SetActive(true);
+           
         }
         
+    }
+
+    public void CellCheck()
+    {
+       
+        int deadCounter = 0;
+        for (int i = 0; i < Cells.Length; i++)
+        {
+            if(Cells[i].gameObject.activeSelf == false)
+            {
+                deadCounter++;
+            }
+        }
+
+        if(deadCounter >= Cells.Length)
+        {
+            Restart();
+        }
     }
 
   

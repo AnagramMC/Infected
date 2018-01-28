@@ -12,10 +12,12 @@ public class RedBloodCell : MonoBehaviour
     private Vector3 originalPosition;
 
 	// Use this for initialization
-	void Start ()
+	void Awake ()
     {
         rb = GetComponent<Rigidbody2D>();
         originalPosition = transform.localPosition;
+
+       
     }
 	
 	// Update is called once per frame
@@ -38,7 +40,9 @@ public class RedBloodCell : MonoBehaviour
 
     public void ReturnPosition()
     {
-        transform.position = originalPosition;
+        transform.localPosition = originalPosition;
+        transform.parent.GetComponent<CellCluster>().CellCheck();
+        gameObject.SetActive(false);
        // transform.parent.gameObject.GetComponent<CellCluster>();
     }
 
@@ -46,8 +50,7 @@ public class RedBloodCell : MonoBehaviour
     {
         if(col.tag =="Border")
         {
-            gameObject.SetActive(false);
-            ReturnPosition();
+            ReturnPosition();     
         }
     }
 }
