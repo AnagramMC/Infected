@@ -70,6 +70,13 @@ public class EnemyHealth : MonoBehaviour
                 return;
             }
 
+            if (CurrentEnemyType == EnemyTypes.Med1 && CurrentEnemyType == EnemyTypes.Med2)
+            {
+                currentAnim = GetComponentInChildren<Animator>();
+                currentAnim.SetBool("isExploding", true);
+                return;
+            }
+
             if (GetComponent<MiniPill>())
             {
                 Destroy(this.gameObject);
