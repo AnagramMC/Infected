@@ -61,7 +61,7 @@ public class CellCluster : MonoBehaviour
                 if (cellCount >= numofCells)
                 {
                     cellCount = 0;
-                   // Restart();
+                   Restart();
                 }
                 else
                 {
@@ -76,7 +76,7 @@ public class CellCluster : MonoBehaviour
                 if (cellCount >= numofCells)
                 {
                     cellCount = 0;
-                   // Restart();
+                    Restart();
                 }
                 else
                 {
@@ -117,7 +117,13 @@ public class CellCluster : MonoBehaviour
 
     public void Restart()
     {
-       // place cluster back into pool
+       GameObject poolObject = GameObject.FindGameObjectWithTag("RedBloodPool");
+       ObjectPool poolScript = poolObject.GetComponent<ObjectPool>();
+
+       gameObject.SetActive(false);
+
+       poolScript.PlaceObject(this.gameObject);
+
     }
 
     public void TurnCellsOn()
@@ -128,4 +134,6 @@ public class CellCluster : MonoBehaviour
         }
         
     }
+
+    
 }

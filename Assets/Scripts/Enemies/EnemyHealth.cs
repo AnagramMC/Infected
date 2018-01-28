@@ -19,9 +19,9 @@ public class EnemyHealth : MonoBehaviour
         health = maxHealth;
         switch (CurrentEnemyType)
         {
-            case EnemyTypes.RedBlood:
-                poolObject = GameObject.FindGameObjectWithTag("RedBloodPool");
-                break;
+            //case EnemyTypes.RedBlood:
+              //  poolObject = GameObject.FindGameObjectWithTag("RedBloodPool");
+                //break;
             case EnemyTypes.WhiteBlood:
                 poolObject = GameObject.FindGameObjectWithTag("WhiteBloodPool");
                 break;
@@ -75,6 +75,7 @@ public class EnemyHealth : MonoBehaviour
         if(poolObject)
         {
             poolScript = poolObject.GetComponent<ObjectPool>();
+            gameObject.SetActive(false);
             poolScript.PlaceObject(gameObject);
         }
         
@@ -95,5 +96,10 @@ public class EnemyHealth : MonoBehaviour
 
 
         }
+
+       if(col.tag == "Border")
+       {
+           ReturnToPool();
+       }
     }
 }
