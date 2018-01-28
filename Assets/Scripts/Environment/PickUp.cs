@@ -11,6 +11,7 @@ public class PickUp : MonoBehaviour
     pickUpTypes pickUp;
     private PlayerShooting shootScript;
     private ScoreManager ScoreManager;
+    private PowerUpManager powerUpManager;
 
     private void Awake()
     {
@@ -23,10 +24,12 @@ public class PickUp : MonoBehaviour
 
             case pickUpTypes.SHOTGUN:
                 shootScript = player.GetComponent<PlayerShooting>();
+                powerUpManager = FindObjectOfType<PowerUpManager>();
                 break;
 
             case pickUpTypes.TRISHOT:
                 shootScript = player.GetComponent<PlayerShooting>();
+                powerUpManager = FindObjectOfType<PowerUpManager>();
                 break;
 
             case pickUpTypes.GRENADE:
@@ -49,12 +52,16 @@ public class PickUp : MonoBehaviour
 
                 case pickUpTypes.SHOTGUN:
                     shootScript.ChangeWeaponType(PlayerShooting.WeaponTypes.Shotgun);
+                    powerUpManager.setPowerText("Shotgun!");
+                    powerUpManager.setPowerSlider();
                     Destroy(gameObject);
 
                     break;
 
                 case pickUpTypes.TRISHOT:
                     shootScript.ChangeWeaponType(PlayerShooting.WeaponTypes.TriGun);
+                    powerUpManager.setPowerText("Tri Gun!");
+                    powerUpManager.setPowerSlider();
                     Destroy(gameObject);
 
                     break;

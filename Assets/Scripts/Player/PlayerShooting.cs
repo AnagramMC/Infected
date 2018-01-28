@@ -11,6 +11,8 @@ public class PlayerShooting : MonoBehaviour
     public float lifeTime;
     public GameObject[] projectilePos;
     public GameObject projectilePivot;
+    public ScoreManager scoreManager;
+
     private Vector2 fireInput;
     private float degree;
     private float fireAngle;
