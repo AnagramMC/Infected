@@ -11,6 +11,8 @@ public class EnemyHealth : MonoBehaviour
     public int maxHealth;
     private int health;
 
+    public int score;
+
 	// Use this for initialization
 	void Awake ()
     {
@@ -44,7 +46,7 @@ public class EnemyHealth : MonoBehaviour
         
         if (health <= 0)
         {
-            gameObject.SetActive(false);
+            
 
             if (GetComponent<RedBloodCell>())
             {
@@ -54,6 +56,16 @@ public class EnemyHealth : MonoBehaviour
             // Destroying logic with object pool, MAKE SURE TO RESET HEALTH AFTERT REMOVING
             
             health = maxHealth;
+
+            ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
+
+            if(scoreManager)
+            {
+                scoreManager.AddScore(score);
+            }
+
+            gameObject.SetActive(false);
+
 
         }
     }

@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
 
-    private static int score;
+    private static int score = 0;
+
+    public Text scoreText;
 
 	// Use this for initialization
 	void Start ()
     {
-		
+        UpdateScore();
 	}
 	
 	// Update is called once per frame
@@ -27,11 +30,12 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(int addition)
     {
         score += addition;
+        UpdateScore();
     }
 
     public void UpdateScore()
     {
-        // Change the text on screen to update to user the score? 
+        scoreText.text = score.ToString();
     }
 
 }

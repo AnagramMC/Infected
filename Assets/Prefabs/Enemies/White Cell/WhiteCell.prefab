@@ -199,6 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentEnemyType: 1
   maxHealth: 30
+  score: 100
 --- !u!114 &114215660155447764
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -695,6 +695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentEnemyType: 0
   maxHealth: 10
+  score: 25
 --- !u!114 &114439994382948882
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -732,6 +733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentEnemyType: 0
   maxHealth: 10
+  score: 25
 --- !u!114 &114615730606284366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -764,6 +766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentEnemyType: 0
   maxHealth: 10
+  score: 25
 --- !u!114 &114721008068425396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -789,6 +792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentEnemyType: 0
   maxHealth: 10
+  score: 25
 --- !u!114 &114834818851029134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -814,6 +818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentEnemyType: 0
   maxHealth: 10
+  score: 25
 --- !u!114 &114890370769421334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -827,6 +832,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentEnemyType: 0
   maxHealth: 10
+  score: 25
 --- !u!212 &212047559081197964
 SpriteRenderer:
   m_ObjectHideFlags: 1
