@@ -41,7 +41,7 @@ public class SpriteSwap : MonoBehaviour
                 SpriteSheetName = "virusShotgun";
                 break;
             case PlayerShooting.WeaponTypes.TriGun:
-                SpriteSheetName = "virus";
+                SpriteSheetName = "virusTriGun";
                 break;
         }
     }
