@@ -76,6 +76,7 @@ public class ScoreManager : MonoBehaviour
             player.SetActive(false);
             HUD.SetActive(false);
             GameOverMenu.SetActive(true);
+            GameOverMenu.GetComponent<GameOver>().updateScreen(score);
             Time.timeScale = 0.0f;
 
             // GAME OVER

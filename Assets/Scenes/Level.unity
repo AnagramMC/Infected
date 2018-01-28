@@ -123,6 +123,18 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 842033976}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &278689235 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114808136246343570, guid: 2ef25a2ba871d6948a8914939f6de50f,
+    type: 2}
+  m_PrefabInternal: {fileID: 842033976}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &335162280 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114822855430174956, guid: 2ef25a2ba871d6948a8914939f6de50f,
+    type: 2}
+  m_PrefabInternal: {fileID: 842033976}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &428172167
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,6 +323,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00275c233ea7c7a458042b3aa7dcbd7a, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &589459231 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114199132535507288, guid: 2ef25a2ba871d6948a8914939f6de50f,
+    type: 2}
+  m_PrefabInternal: {fileID: 842033976}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &670915257
 Prefab:
   m_ObjectHideFlags: 0
@@ -579,7 +597,27 @@ Prefab:
       propertyPath: Menu
       value: 
       objectReference: {fileID: 95344529}
-    m_RemovedComponents: []
+    - target: {fileID: 1853498247459992, guid: 2ef25a2ba871d6948a8914939f6de50f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114601725612129896, guid: 2ef25a2ba871d6948a8914939f6de50f,
+        type: 2}
+      propertyPath: getTimeText
+      value: 
+      objectReference: {fileID: 335162280}
+    - target: {fileID: 114601725612129896, guid: 2ef25a2ba871d6948a8914939f6de50f,
+        type: 2}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 589459231}
+    - target: {fileID: 114601725612129896, guid: 2ef25a2ba871d6948a8914939f6de50f,
+        type: 2}
+      propertyPath: timeText
+      value: 
+      objectReference: {fileID: 278689235}
+    m_RemovedComponents:
+    - {fileID: 114358412897986152, guid: 2ef25a2ba871d6948a8914939f6de50f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2ef25a2ba871d6948a8914939f6de50f, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &936070169 stripped
