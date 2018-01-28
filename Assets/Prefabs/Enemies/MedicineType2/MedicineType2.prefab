@@ -84,7 +84,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4154912735647252}
   - component: {fileID: 212635672560982014}
-  - component: {fileID: 95957364217808912}
+  - component: {fileID: 114960496801414416}
+  - component: {fileID: 95996392099614868}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -196,7 +197,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!95 &95957364217808912
+--- !u!95 &95996392099614868
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -244,8 +245,21 @@ MonoBehaviour:
   - {fileID: 1829994356196604}
   - {fileID: 1772989811504894}
   Target: {fileID: 0}
+  pillAnim: {fileID: 95996392099614868}
   speed: 2
   distanceCheck: 5
+--- !u!114 &114960496801414416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850138684586586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0f0824bb00246488e0f48cb3e5bf48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  medicine: {fileID: 1656486840387060}
 --- !u!212 &212635672560982014
 SpriteRenderer:
   m_ObjectHideFlags: 1
