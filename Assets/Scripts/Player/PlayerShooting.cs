@@ -87,8 +87,8 @@ public class PlayerShooting : MonoBehaviour
                         PlayerProjectile projectileScript = curProjectile.GetComponent<PlayerProjectile>();
                         projectileScript.changeLifeSpan(2);
                         projectileScript.StartTimer();
-                        projectileScript.Shoot(projectilePos[i].transform.up);
-                        rateOfFire = projectileScript.rateOfFire;
+                        projectileScript.Shoot(projectilePos[i].transform.right);
+                        rateOfFire = projectileScript.lifeSpan;
                     }
                     canShoot = false;
                     StartCoroutine(ResetCanShoot());
