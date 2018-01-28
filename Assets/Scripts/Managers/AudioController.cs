@@ -20,6 +20,12 @@ public class AudioController : MonoBehaviour {
     public float hitDelay;
     public float maxHitDelay;
 
+    [Header("Enemy Hit")]
+    public AudioSource EnemyHitSource;
+    public float EnemyhitDelay;
+    public float maxEnemyHitDelay;
+
+
     [Header("PowerUp")]
     public AudioSource powerUpSource;
     public float powerUpDelay;
@@ -52,8 +58,8 @@ public class AudioController : MonoBehaviour {
         {
             if (BgMusicSource != null)
             {
-                BgMusicSource.priority = 200;
-                BgMusicSource.volume = 0.25f;
+                BgMusicSource.priority = 100;
+                BgMusicSource.volume = 0.5f;
                 BgMusicSource.minDistance = 1000f;
                 BgMusicSource.loop = true;
                 BgMusicSource.Play();
@@ -66,8 +72,8 @@ public class AudioController : MonoBehaviour {
         {
             if (GameOverSource != null)
             {
-                GameOverSource.priority = 200;
-                GameOverSource.volume = 0.25f;
+                GameOverSource.priority = 100;
+                GameOverSource.volume = 0.5f;
                 GameOverSource.minDistance = 1000f;
                 GameOverSource.loop = true;
                 GameOverSource.Play();
@@ -82,10 +88,27 @@ public class AudioController : MonoBehaviour {
             if (playerHitSource != null)
             {
                 playerHitSource.pitch = Random.Range(0.8f, 1f);
-                playerHitSource.volume = Random.Range(0.8f, 1f);
+                playerHitSource.volume = Random.Range(0.4f, 0.5f);
                 playerHitSource.minDistance = 20f;
                 playerHitSource.loop = false;
                 playerHitSource.Play();
+
+                timer_02 = 0f;
+            }
+        }
+    }
+    public void EnemyHit(Vector3 pos)
+    {
+        if (timer_02 >= maxEnemyHitDelay)
+        {
+
+            if (EnemyHitSource != null)
+            {
+                EnemyHitSource.pitch = Random.Range(0.8f, 1f);
+                EnemyHitSource.volume = Random.Range(0.4f, 0.5f);
+                EnemyHitSource.minDistance = 20f;
+                EnemyHitSource.loop = false;
+                EnemyHitSource.Play();
 
                 timer_02 = 0f;
             }
@@ -99,7 +122,7 @@ public class AudioController : MonoBehaviour {
             if (powerUpSource != null)
             {
                 powerUpSource.pitch = Random.Range(0.8f, 1f);
-                powerUpSource.volume = Random.Range(0.8f, 1f);
+                powerUpSource.volume = Random.Range(0.2f, 0.5f);
                 powerUpSource.minDistance = 20f;
                 powerUpSource.loop = false;
                 powerUpSource.Play();
@@ -116,7 +139,7 @@ public class AudioController : MonoBehaviour {
             if (MedExplosionSource != null)
             {
                 MedExplosionSource.pitch = Random.Range(0.5f, 0.8f);
-                MedExplosionSource.volume = Random.Range(0.8f, 1f);
+                MedExplosionSource.volume = Random.Range(0.2f, 0.5f);
                 MedExplosionSource.minDistance = 20f;
                 MedExplosionSource.loop = false;
                 MedExplosionSource.Play();
