@@ -384,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7374054d0a4fff343b942be3fc7fb9c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curWeaponType: 1
+  curWeaponType: 0
   projectilePrefab: {fileID: 1310857590139728, guid: ef58b6a87afbc604e992c36f5e2aeabc,
     type: 2}
   projectilePool: {fileID: 0}
@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 157e75a4bfd83cd41abac8108f0226c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpriteSheetName: sheet1
+  SpriteSheetName: virus
 --- !u!135 &135431694960017124
 SphereCollider:
   m_ObjectHideFlags: 1
