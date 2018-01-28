@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 58009582475710748}
   - component: {fileID: 114185843828390580}
   - component: {fileID: 114027348120763398}
+  - component: {fileID: 114107474353531046}
   m_Layer: 0
   m_Name: MedicineType2
   m_TagString: Enemy
@@ -227,6 +228,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   ShouldMove: 1
+--- !u!114 &114107474353531046
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1656486840387060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6355d0d758f7a469c09f18a10144d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentEnemyType: 3
+  maxHealth: 10
+  score: 500
 --- !u!114 &114185843828390580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -247,7 +262,7 @@ MonoBehaviour:
   Target: {fileID: 0}
   pillAnim: {fileID: 95996392099614868}
   speed: 2
-  distanceCheck: 5
+  distanceCheck: 15
 --- !u!114 &114960496801414416
 MonoBehaviour:
   m_ObjectHideFlags: 1

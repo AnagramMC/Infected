@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 50127485727799480}
   - component: {fileID: 58473421967179662}
   - component: {fileID: 114610501660819126}
+  - component: {fileID: 114951562549454070}
   m_Layer: 0
   m_Name: MiniPill
   m_TagString: Enemy
@@ -118,7 +119,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db19354511982774c99943bf2c231c22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 4
+--- !u!114 &114951562549454070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1864064756986170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6355d0d758f7a469c09f18a10144d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentEnemyType: 0
+  maxHealth: 10
+  score: 0
 --- !u!212 &212382614738860006
 SpriteRenderer:
   m_ObjectHideFlags: 1
