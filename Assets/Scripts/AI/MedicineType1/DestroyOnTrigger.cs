@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DestroyOnTrigger : MonoBehaviour {
 
-    public GameObject ExplosionArt;
     public Animator pillAnim;
 
     private EnemyHealth healthScript;
@@ -21,7 +20,7 @@ public class DestroyOnTrigger : MonoBehaviour {
         if(curString=="Player")
         {
             audioScript.MedicineExplosion(transform.position);
-            Instantiate(ExplosionArt, transform.position,transform.rotation);
+
             pillAnim.SetBool("isExploding", true);
             healthScript.OnDamage(1);
         }
