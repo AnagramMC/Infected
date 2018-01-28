@@ -6,6 +6,8 @@ public class EnemyHealth : MonoBehaviour
 {
     public enum EnemyTypes {RedBlood,WhiteBlood,Med1,Med2,Projectile}
     public EnemyTypes CurrentEnemyType;
+
+    private CameraShake cameraShakeScript;
     private GameObject poolObject;
     private ObjectPool poolScript;
     public int maxHealth;
@@ -32,6 +34,7 @@ public class EnemyHealth : MonoBehaviour
                 poolObject = GameObject.FindGameObjectWithTag("Med2Pool");
                 break;
         }
+        cameraShakeScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
     }
 	
 	// Update is called once per frame
@@ -99,6 +102,7 @@ public class EnemyHealth : MonoBehaviour
             {
                 OnDamage(playerBullet.damage);
                 playerBullet.ReturnProjectile();
+                cameraShakeScript.Enable();
             }
 
 
