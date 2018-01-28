@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
     public enum EnemyTypes {RedBlood,WhiteBlood,Med1,Med2,Projectile}
     public EnemyTypes CurrentEnemyType;
 
+    private AudioController audioScript;
     private CameraShake cameraShakeScript;
     private Animator currentAnim;
     private GameObject poolObject;
@@ -20,6 +21,7 @@ public class EnemyHealth : MonoBehaviour
 	void Awake ()
     {
         health = maxHealth;
+        audioScript = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>();
         switch (CurrentEnemyType)
         {
             //case EnemyTypes.RedBlood:
@@ -82,7 +84,10 @@ public class EnemyHealth : MonoBehaviour
                 Destroy(this.gameObject);
             }
 
-            
+            if(audioScript)
+            {
+                audioScript.EnemyHit(transform.position);
+            }
             // Destroying logic with object pool, MAKE SURE TO RESET HEALTH AFTERT REMOVING 
 
             gameObject.SetActive(false);
