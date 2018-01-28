@@ -8,6 +8,7 @@ public class Pill2 : MonoBehaviour
     public GameObject[] spawnPoints;
 
     public GameObject Target;
+    public Animator pillAnim;
 
     public float speed;
     public float distanceCheck;
@@ -28,7 +29,7 @@ public class Pill2 : MonoBehaviour
     {
         float distance = Vector3.Distance(transform.position, Target.transform.position);
         //Debug.Log(distance);
-        if (distance <= distanceCheck)
+        if (distance <= distanceCheck && !pillAnim.GetBool("isExploding"))
         {
             Spread();
         }
@@ -40,7 +41,8 @@ public class Pill2 : MonoBehaviour
         {
             Instantiate(miniPillPrefab, spawnPoints[i].transform.position, spawnPoints[i].transform.rotation);
         }
-
-        Destroy(this.gameObject);
+        pillAnim.SetBool("isExploding", true);
     }
+
+
 }
