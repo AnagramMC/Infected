@@ -53,7 +53,7 @@ public class PickUp : MonoBehaviour
 
                 case pickUpTypes.SHOTGUN:
                     shootScript.ChangeWeaponType(PlayerShooting.WeaponTypes.Shotgun);
-                    powerUpManager.setPowerText("Shotgun!");
+                    powerUpManager.setPowerText("Spreading Virus");
                     powerUpManager.setPowerSlider();
                     Destroy(gameObject);
 
@@ -61,7 +61,7 @@ public class PickUp : MonoBehaviour
 
                 case pickUpTypes.TRISHOT:
                     shootScript.ChangeWeaponType(PlayerShooting.WeaponTypes.TriGun);
-                    powerUpManager.setPowerText("Tri Gun!");
+                    powerUpManager.setPowerText("Tripple Virus");
                     powerUpManager.setPowerSlider();
                     Destroy(gameObject);
 
