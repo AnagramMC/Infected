@@ -7,6 +7,9 @@ public class PlayerShooting : MonoBehaviour
     public enum WeaponTypes { MachineGun,Shotgun,TriGun}
     public WeaponTypes curWeaponType;
     public GameObject projectilePrefab;
+    public GameObject shotgunOverlay;
+    public GameObject trigunOverlay;
+
     public ProjectilePoolManager projectilePool;
     public float lifeTime;
     public GameObject[] projectilePos;
@@ -32,6 +35,17 @@ public class PlayerShooting : MonoBehaviour
     public void ChangeWeaponType(WeaponTypes newWeaponType)
     {
         curWeaponType = newWeaponType;
+        switch (curWeaponType)
+        {
+            case WeaponTypes.MachineGun:
+                break;
+            case WeaponTypes.Shotgun:
+                shotgunOverlay.SetActive(true);
+                break;
+            case WeaponTypes.TriGun:
+                shotgunOverlay.SetActive(true);
+                break;
+        }
     }
 
 	// Update is called once per frame
