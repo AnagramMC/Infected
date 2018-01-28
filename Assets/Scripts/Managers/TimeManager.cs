@@ -26,7 +26,7 @@ public class TimeManager : MonoBehaviour
     void updateTime()
     {
         seconds += Time.deltaTime;
-        timeText.text = hours + ":" + minutes + ":" + (int)seconds + "s";
+        timeText.text = hours + ":" + minutes + ":" + (int)seconds;
         if (seconds >= 60)
         {
             minutes++;
