@@ -78,18 +78,29 @@ public class SpawnManager : MonoBehaviour
             chosenIndex++;
             cumulativeWeight += spawnList[chosenIndex].weight;
         }
+        //determine spawn location
         spawnLocation.x = Random.Range(minX, maxX);
         spawnLocation.y = defaultY;
-        //determine spawn location
-        //get pool from current chosen index
-        gameObjectPool = spawnList[chosenIndex].gameObject.GetComponent<ObjectPool>();
-        //get current object from pool
-        curObject = gameObjectPool.GetObject();
-        //set current object position
-        curObject.transform.position = spawnLocation;
-        
-        //set current object active
-        curObject.SetActive(true);
+        GameObject curObject = spawnList[chosenIndex].gameObject;
+        if(curObject.name.Contains("Pickup"))
+        {
+            Instantiate(curObject, spawnLocation, Quaternion.identity);
+        }
+        else
+        {
+            //get pool from current chosen index
+            gameObjectPool = curObject.GetComponent<ObjectPool>();
+            if(gameObjectPool)
+            {
+                //get current object from pool
+                curObject = gameObjectPool.GetObject();
+                //set current object position
+                curObject.transform.position = spawnLocation;
+                //set current object active
+                curObject.SetActive(true);
+            }
+        }
+
         StartCoroutine(countdownToNextSpawn());
     }
 

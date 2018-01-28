@@ -266,6 +266,15 @@ MonoBehaviour:
     weight: 10
   - gameObject: {fileID: 1398543614755904}
     weight: 3
+  - gameObject: {fileID: 1101685321911344, guid: 4e8489374ebdc8442ab72b97f446f38b,
+      type: 2}
+    weight: 1
+  - gameObject: {fileID: 1172945961515962, guid: 05de437655465ad4ab5d0fd702096a20,
+      type: 2}
+    weight: 1
+  - gameObject: {fileID: 1130304966584878, guid: eadac6bb6ad43154e84b86d9ff4f8186,
+      type: 2}
+    weight: 1
   curSpawnNumber: 10
   waitForNextSpawn: 0.5
   waitForNextDifficulty: 1

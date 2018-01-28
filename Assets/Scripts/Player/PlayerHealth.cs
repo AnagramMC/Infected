@@ -40,7 +40,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void AddLife()
     {
-
+        lives++;
     }
 
     IEnumerator RespawnWait(int seconds)
