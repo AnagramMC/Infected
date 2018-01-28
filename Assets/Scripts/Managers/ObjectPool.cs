@@ -8,7 +8,7 @@ public class ObjectPool : MonoBehaviour
     public int size;
 
     List<GameObject> objectList;
-
+    List<GameObject> activeList;
 
 	// Use this for initialization
 	void Awake ()
@@ -21,7 +21,7 @@ public class ObjectPool : MonoBehaviour
     {
         // Create new Game objext list
         objectList = new List<GameObject>();
-
+        activeList = new List<GameObject>();
         // Spawn in Game Objects to pool and add to the object list
         for (int i = 0; i < size; i++)
         {
@@ -43,7 +43,7 @@ public class ObjectPool : MonoBehaviour
             // go to first object in list and remove it
             GameObject gameObj = objectList[0];
             objectList.RemoveAt(0);
-
+            activeList.Add(gameObj);
             // Return Game Object to specifc manager
             return gameObj;
         }
@@ -51,9 +51,21 @@ public class ObjectPool : MonoBehaviour
         {
             // If there is no object currently in list, spawn a new object in to increase the list
             GameObject gameObj = Instantiate(prefab, transform.position, Quaternion.identity) as GameObject;
-
+            activeList.Add(gameObj);
             // Return the spawned in object to specifc manager
             return gameObj;
+        }
+    }
+
+    public void ReturnAllObjects()
+    {
+        int activeSize = activeList.Count;
+        for(int i=0;i<activeSize;i++)
+        {
+            GameObject curObject = activeList[0];
+            activeList.RemoveAt(0);
+            objectList.Add(curObject);
+            curObject.SetActive(false);
         }
     }
 

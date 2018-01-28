@@ -29,14 +29,15 @@ public class SpawnManager : MonoBehaviour
     private GameObject curObject;
     private Vector2 spawnLocation;
     public int curSpawnNumber=10;
-    private int curTotalSpawn;
+    private int curTotalSpawn=1;
     public float waitForNextSpawn = 0.5f;
     public float waitForNextDifficulty = 1f;
-    private int difficultyMultiplier=1;
+    private float difficultyMultiplier=0.1f;
     public GameObject[] spawnRange;
     private float minX;
     private float maxX;
     private float defaultY;
+    private bool doOnce;
     Quaternion tempRot;
     // Update the total weight when the user modifies Inspector properties,
     // and on initialization at runtime.
@@ -112,19 +113,53 @@ public class SpawnManager : MonoBehaviour
     IEnumerator countdownToNextSpawn()
     {
         curSpawnNumber--;
+        if(curSpawnNumber>50)
+        {
+            if(!doOnce)
+            {
+                waitForNextSpawn++;
+                doOnce = true;
+            }
+            
+        }
         yield return new WaitForSeconds(waitForNextSpawn);
-        if(curSpawnNumber>=0)
+        if(curSpawnNumber>0)
         {
             Spawn();
         }
         else
         {
             difficultyMultiplier++;
-            curTotalSpawn += curTotalSpawn * difficultyMultiplier;
-            curSpawnNumber = curTotalSpawn;
+            curTotalSpawn +=Mathf.RoundToInt( curTotalSpawn * difficultyMultiplier);
+            curSpawnNumber += curTotalSpawn;
             StartCoroutine(countdownToIncreaseDifficulty());
         }
     }
+    IEnumerator longerCountdownToSpawn()
+    {
+        yield return new WaitForSeconds(3);
+        if (curSpawnNumber > 0)
+        {
+            Spawn();
+        }
+    }
+    public void ClearAllCurrentEnemies()
+    {
+        for(int i=0;i<=spawnList.Length-1;i++)
+        {
+            GameObject thisObject = spawnList[i].gameObject;
+            if(!thisObject.name.Contains("PickUp"))
+            {
+                ObjectPool curPool = thisObject.GetComponent<ObjectPool>();
+                curPool.ReturnAllObjects();
+            }
+        }
+        
+        StopCoroutine(countdownToNextSpawn());
+        StartCoroutine(longerCountdownToSpawn());
+    }
+
+   
 
     IEnumerator countdownToIncreaseDifficulty()
     {

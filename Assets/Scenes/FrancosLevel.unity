@@ -685,6 +685,34 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 447e8b1b386f65948896176489203905, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1636887122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1636887123}
+  m_Layer: 0
+  m_Name: MedicineExplosion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1636887123
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1636887122}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2037923899}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1657702322 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114294914047988886, guid: 2ef25a2ba871d6948a8914939f6de50f,
@@ -785,6 +813,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0ffe88eda32f1d45acdf97a09bc2ff6, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &2037923899 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4975699716109356, guid: d0ffe88eda32f1d45acdf97a09bc2ff6,
+    type: 2}
+  m_PrefabInternal: {fileID: 1941197408}
 --- !u!1001 &2103698649
 Prefab:
   m_ObjectHideFlags: 0

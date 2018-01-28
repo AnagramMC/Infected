@@ -12,7 +12,7 @@ public class PlayerShooting : MonoBehaviour
     public GameObject[] projectilePos;
     public GameObject projectilePivot;
     public ScoreManager scoreManager;
-    
+    private SpawnManager spawnScript;
 
 
     private Vector2 fireInput;
@@ -23,9 +23,9 @@ public class PlayerShooting : MonoBehaviour
     private bool canShoot = true;
 
     // Use this for initialization
-    void Start ()
+    void Awake ()
     {
-	    	
+        spawnScript = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>();
 	}
 	
     public void ChangeWeaponType(WeaponTypes newWeaponType)
@@ -38,7 +38,10 @@ public class PlayerShooting : MonoBehaviour
     {
         //get input of right stick
         fireInput = new Vector2(Input.GetAxisRaw("RightH"), Input.GetAxisRaw("RightV"));
-        
+        if(Input.GetButton("Fire1"))
+        {
+            spawnScript.ClearAllCurrentEnemies();
+        }
         switch(curWeaponType)
         {
             case WeaponTypes.MachineGun:
