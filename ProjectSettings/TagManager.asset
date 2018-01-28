@@ -11,6 +11,7 @@ TagManager:
   - WhiteBloodPool
   - Med1Pool
   - Med2Pool
+  - Background
   layers:
   - Default
   - TransparentFX
