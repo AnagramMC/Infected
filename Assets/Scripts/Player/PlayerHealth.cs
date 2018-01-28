@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
     private CameraShake cameraShakeScript;
     private AudioController audioScript;
     private bool isDamaged = false;
-    
+    private int currentLives;
     // Use this for initialization
     private void Awake()
     {
@@ -38,10 +38,15 @@ public class PlayerHealth : MonoBehaviour
     {
         if (gameObject.activeSelf == true)
         {
-            FindObjectOfType<ScoreManager>().LoseLife();
-            isDamaged = false;
-            //cameraShakeScript.Enable();
-            StartCoroutine(RespawnWait(2));
+            ScoreManager ScoreScript = FindObjectOfType<ScoreManager>();
+            ScoreScript.LoseLife();
+            currentLives = ScoreScript.CurrentLives();
+            if(currentLives>=1)
+            {
+                isDamaged = false;
+                //cameraShakeScript.Enable();
+                StartCoroutine(RespawnWait(2));
+            }
         }
     }
 

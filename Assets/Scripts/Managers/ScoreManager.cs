@@ -83,6 +83,11 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
+    public int CurrentLives()
+    {
+        return lives;
+    }
+
     public void TopScoresUpdate()
     {
         for(int i = 0; i < topScores.Length; i++)
