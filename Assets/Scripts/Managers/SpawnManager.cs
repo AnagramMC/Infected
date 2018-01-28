@@ -29,7 +29,7 @@ public class SpawnManager : MonoBehaviour
     private GameObject curObject;
     private Vector2 spawnLocation;
     public int curSpawnNumber=10;
-    private int curTotalSpawn=1;
+    public int curTotalSpawn=1;
     public float waitForNextSpawn = 0.5f;
     public float waitForNextDifficulty = 1f;
     private float difficultyMultiplier=0.1f;
@@ -76,7 +76,6 @@ public class SpawnManager : MonoBehaviour
         float pick = Random.value * _totalSpawnWeight;
         int chosenIndex = 0;
         float cumulativeWeight = spawnList[0].weight;
-        curSpawnNumber -=Mathf.RoundToInt(cumulativeWeight);
         // Step through the list until we've accumulated more weight than this.
         // The length check is for safety in case rounding errors accumulate.
         while (pick > cumulativeWeight && chosenIndex < spawnList.Length - 1)
@@ -88,9 +87,11 @@ public class SpawnManager : MonoBehaviour
         spawnLocation.x = Random.Range(minX, maxX);
         spawnLocation.y = defaultY;
         GameObject curObject = spawnList[chosenIndex].gameObject;
-        if(curObject.name.Contains("Pickup"))
+        if(curObject.name.Contains("PickUp"))
         {
             Instantiate(curObject, spawnLocation, Quaternion.identity);
+            curSpawnNumber -= Mathf.RoundToInt(cumulativeWeight);
+
         }
         else
         {
@@ -104,8 +105,9 @@ public class SpawnManager : MonoBehaviour
                 curObject.transform.position = spawnLocation;
                 //set current object active
                 curObject.SetActive(true);
+                curSpawnNumber -= Mathf.RoundToInt(cumulativeWeight);
 
-               if(curObject.GetComponent<CellCluster>())
+                if (curObject.GetComponent<CellCluster>())
                  {
                    Debug.Log("USED");
                    curObject.GetComponent<CellCluster>().TurnCellsOn();
@@ -118,15 +120,22 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator countdownToNextSpawn()
     {
-        curSpawnNumber--;
-        if(curSpawnNumber>50)
+
+        if (curTotalSpawn > 1000)
         {
-            if(!doOnce)
-            {
-                waitForNextSpawn++;
-                doOnce = true;
-            }
-            
+            waitForNextSpawn = 0.35f;
+        }
+        else if (curTotalSpawn > 700)
+        {
+            waitForNextSpawn = 0.65f;
+        }
+        else if (curTotalSpawn > 200)
+        {
+            waitForNextSpawn = 0.85f;
+        }
+        else if(curTotalSpawn>100)
+        {
+            waitForNextSpawn = 0.9f;
         }
         yield return new WaitForSeconds(waitForNextSpawn);
         if(curSpawnNumber>0)
@@ -138,6 +147,7 @@ public class SpawnManager : MonoBehaviour
             difficultyMultiplier++;
             curTotalSpawn +=Mathf.RoundToInt( curTotalSpawn * difficultyMultiplier);
             curSpawnNumber += curTotalSpawn;
+            
             StartCoroutine(countdownToIncreaseDifficulty());
         }
     }
