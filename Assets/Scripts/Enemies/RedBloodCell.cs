@@ -41,8 +41,9 @@ public class RedBloodCell : MonoBehaviour
     public void ReturnPosition()
     {
         transform.localPosition = originalPosition;
-        transform.parent.GetComponent<CellCluster>().CellCheck();
         gameObject.SetActive(false);
+        transform.parent.GetComponent<CellCluster>().CellCheck();
+        
        // transform.parent.gameObject.GetComponent<CellCluster>();
     }
 
