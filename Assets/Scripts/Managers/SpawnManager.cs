@@ -109,25 +109,42 @@ public class SpawnManager : MonoBehaviour
 
                 if (curObject.GetComponent<CellCluster>())
                  {
-                   Debug.Log("USED");
                    curObject.GetComponent<CellCluster>().TurnCellsOn();
                  }
             }
         }
-
         StartCoroutine(countdownToNextSpawn());
     }
 
     IEnumerator countdownToNextSpawn()
     {
-
-        if (curTotalSpawn > 1000)
+        if (curTotalSpawn > 2500)
+        {
+            waitForNextSpawn = 0.3f;
+        }
+        if (curTotalSpawn > 2000)
         {
             waitForNextSpawn = 0.35f;
         }
-        else if (curTotalSpawn > 700)
+        if (curTotalSpawn > 1700)
+        {
+            waitForNextSpawn = 0.4f;
+        }
+        else if (curTotalSpawn > 1500)
+        {
+            waitForNextSpawn = 0.5f;
+        }
+        else if (curTotalSpawn > 1200)
+        {
+            waitForNextSpawn = 0.6f;
+        }
+        else if (curTotalSpawn > 1000)
         {
             waitForNextSpawn = 0.65f;
+        }
+        else if (curTotalSpawn > 400)
+        {
+            waitForNextSpawn = 0.75f;
         }
         else if (curTotalSpawn > 200)
         {

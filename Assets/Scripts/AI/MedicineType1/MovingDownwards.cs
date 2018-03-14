@@ -12,7 +12,8 @@ public class MovingDownwards : MonoBehaviour {
         //if object should move then it will move with that code underneath 
         if (ShouldMove)
         {
-            //move this shit to the right
+            //move this shit to the down
+            
             transform.position += moveSpeed * -transform.up * Time.deltaTime;
             //transform.position = new Vector3(transform.position.x, transform.position.y, 0);
         }

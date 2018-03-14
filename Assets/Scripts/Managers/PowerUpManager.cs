@@ -8,7 +8,7 @@ public class PowerUpManager : MonoBehaviour
     public Text powerText;
     public Slider powerSlider;
 
-    private float timeLeft = 30;
+    private float timeLeft = 10;
 
     private bool startTimer = false;
 	// Use this for initialization
@@ -37,7 +37,7 @@ public class PowerUpManager : MonoBehaviour
                     playerShot.ChangeWeaponType(PlayerShooting.WeaponTypes.MachineGun);
                 }
 
-                timeLeft = 30;
+                timeLeft = 10;
 
                 startTimer = false;
             }
@@ -53,7 +53,7 @@ public class PowerUpManager : MonoBehaviour
     {
         powerSlider.gameObject.SetActive(true);
         powerSlider.value = powerSlider.maxValue;
-        timeLeft = 30;
+        timeLeft = 10;
         startTimer = true;
     }
 
